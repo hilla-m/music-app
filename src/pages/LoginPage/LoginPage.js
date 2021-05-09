@@ -3,31 +3,30 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { Link, Redirect } from 'react-router-dom';
 import './LoginPage.css';
 
-function LoginPage({ users , onLogin , activeUser }) {
+function LoginPage({ users, onLogin, activeUser }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showInvalidLogin, setshowInvalidLogin] = useState(false);
 
-    if (activeUser){
-        return <Redirect to="/home"/>
+    if (activeUser) {
+        return <Redirect to="/home" />
     }
 
     function login(e) {
         e.preventDefault();
-
+        debugger;
         let activeUser = null;
         for (const user of users) {
             if (user.login(email, password)) {
                 activeUser = user;
                 break;
             }
-            if (activeUser) {
-                onLogin(activeUser);
-            } else {
-                setshowInvalidLogin(true);
-            }
         }
-
+        if (activeUser) {
+            onLogin(activeUser);
+        } else {
+            setshowInvalidLogin(true);
+        }
     }
 
     return (
