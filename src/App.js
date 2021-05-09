@@ -13,12 +13,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import MyMusicNavbar from './components/MyMusicNavbar/MyMusicNavbar';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
+import { useState } from 'react';
 
 
 function App() {
+  // const [users, setUsers] = useState(usersJSON.map(plainUser => new UserModel(plainUser)));
+  // const [recipes, setRecipes] = useState(recipesJSON.map(plainRecipe => new RecipeModel(plainRecipe)));
+  const [activeUser, setActiveUser] = useState(null);   //(users[0]);
+ 
   return (
     <>
-    <MyMusicNavbar/>
+    <MyMusicNavbar activeUser={activeUser}/>
       <HashRouter>
         <Switch>
           <Route exact path="/"><LandingPage/></Route>

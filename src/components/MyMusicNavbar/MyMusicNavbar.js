@@ -2,7 +2,7 @@ import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import '../MyMusicNavbar/MyMusicNavbar.css'
 
-function MyMusicNavbar(props) {
+function MyMusicNavbar({ activeUser }) {
     return (
         <Navbar variant="dark" className="navbar navbar-bg" expand="lg">
             <Navbar.Brand href="#home">My Music
@@ -11,17 +11,17 @@ function MyMusicNavbar(props) {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="nav-display">
                 <Nav className="mr-auto">
-                    <Nav.Link href="#all-playlists">Playlists</Nav.Link>
-                    <Nav.Link href="#albums">Albums</Nav.Link>
-                    <Nav.Link href="#artists">Artists</Nav.Link>
+                    {activeUser ? < Nav.Link href="#all-playlists">Playlists</Nav.Link> : null}
+                    {activeUser ? <Nav.Link href="#albums">Albums</Nav.Link> : null}
+                    {activeUser ? <Nav.Link href="#artists">Artists</Nav.Link> : null}
                 </Nav>
                 <Nav className="ml-auto">
-                    <Nav.Link href="#login">Login</Nav.Link>
-                    <Nav.Link href="#signup">Signup</Nav.Link>
-                    <Nav.Link href="#">Logout</Nav.Link>
+                    {!activeUser ? <Nav.Link href="#login">Login</Nav.Link> : null}
+                    {!activeUser ? <Nav.Link href="#signup">Signup</Nav.Link> : null}
+                    {activeUser ? <Nav.Link href="#">Logout</Nav.Link> : null}
                 </Nav>
             </Navbar.Collapse>
-        </Navbar>
+        </Navbar >
     );
 }
 
