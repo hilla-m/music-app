@@ -15,12 +15,14 @@ import { useState } from 'react';
 import LoginPage from './pages/LoginPage/LoginPage';
 import SignupPage from './pages/SignupPage/SignupPage';
 import './App.css';
+import usersJSON from './data/users.json';
+import UserModel from './model/UserModel';
 
 
 function App() {
-  // const [users, setUsers] = useState(usersJSON.map(plainUser => new UserModel(plainUser)));
-  // const [recipes, setRecipes] = useState(recipesJSON.map(plainRecipe => new RecipeModel(plainRecipe)));
-  const [activeUser, setActiveUser] = useState({id:"123"});   //(users[0]);
+  const [users, setUsers] = useState(usersJSON.map(plainUser => new UserModel(plainUser)));
+
+  const [activeUser, setActiveUser] = useState(users[0]);
  
   return (
     <>
@@ -29,7 +31,7 @@ function App() {
         <Switch>
           <Route exact path="/"><LandingPage activeUser={activeUser}/></Route>
           <Route exact path="/home"><HomePage activeUser={activeUser}/></Route>
-          <Route exact path="/login"><LoginPage/></Route>
+          <Route exact path="/login"><LoginPage users={users}/></Route>
           <Route exact path="/signup"><SignupPage/></Route>
           <Route exact path="/album"><AlbumPage activeUser={activeUser}/></Route>
           <Route exact path="/search"><SearchingPage activeUser={activeUser}/></Route>

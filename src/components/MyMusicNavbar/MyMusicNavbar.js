@@ -18,7 +18,7 @@ function MyMusicNavbar({ activeUser , onLogout }) {
                 <Nav className="ml-auto">
                     {!activeUser ? <Nav.Link href="#login">Login</Nav.Link> : null}
                     {!activeUser ? <Nav.Link href="#signup">Signup</Nav.Link> : null}
-                    {activeUser ? <Nav.Link href="#" onClick= {() => onLogout()}>Logout</Nav.Link> : null}
+                    {activeUser ? <Nav.Link href="#" onClick= {() => onLogout()}>{activeUser.fullName} Logout</Nav.Link> : null}
                 </Nav>
             </Navbar.Collapse>
         </Navbar >

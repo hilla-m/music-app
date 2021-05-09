@@ -1,0 +1,21 @@
+[
+{
+    "id": 1,
+    "fullName": "Dana",
+    "email": "dana@gmail.com",
+    "password": "123",
+    "playlists" : [1],
+    "albums":[],
+    "artists":[]
+},
+{
+    "id": 2,
+    "fullName": "Ron",
+    "email": "ron@gmail.com",
+    "password": "123",
+    "playlists" : [1,2],
+    "albums":[],
+    "artists":[]
+}
+
+]
