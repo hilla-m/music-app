@@ -1,6 +1,10 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 
-function AlbumPage(props) {
+function AlbumPage({activeUser}) {
+    if(!activeUser){
+        return <Redirect to="/"/>
+    }
     return (
         <div>
             AlbumPage
