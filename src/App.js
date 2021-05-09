@@ -11,9 +11,10 @@ import PlaylistPage from './pages/PlaylistPage/PlaylistPage';
 import SearchingPage from './pages/SearchingPage/SearchingPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyMusicNavbar from './components/MyMusicNavbar/MyMusicNavbar';
-import Login from './components/Login/Login';
-import Signup from './components/Signup/Signup';
 import { useState } from 'react';
+import LoginPage from './pages/LoginPage/LoginPage';
+import SignupPage from './pages/SignupPage/SignupPage';
+import './App.css';
 
 
 function App() {
@@ -28,8 +29,8 @@ function App() {
         <Switch>
           <Route exact path="/"><LandingPage activeUser={activeUser}/></Route>
           <Route exact path="/home"><HomePage activeUser={activeUser}/></Route>
-          <Route exact path="/login"><Login/></Route>
-          <Route exact path="/signup"><Signup/></Route>
+          <Route exact path="/login"><LoginPage/></Route>
+          <Route exact path="/signup"><SignupPage/></Route>
           <Route exact path="/album"><AlbumPage activeUser={activeUser}/></Route>
           <Route exact path="/search"><SearchingPage activeUser={activeUser}/></Route>
           <Route exact path="/artist"><ArtistPage activeUser={activeUser}/></Route>

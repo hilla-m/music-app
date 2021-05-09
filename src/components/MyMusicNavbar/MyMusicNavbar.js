@@ -3,7 +3,7 @@ import { Nav, Navbar } from 'react-bootstrap';
 import '../MyMusicNavbar/MyMusicNavbar.css'
 
 function MyMusicNavbar({ activeUser , onLogout }) {
-    return (
+        return (
         <Navbar variant="dark" className="navbar navbar-bg" expand="lg">
             <Navbar.Brand href="#home">My Music
             {/* <img src="music-logo.jpg" width="40" className="logo"/> */}

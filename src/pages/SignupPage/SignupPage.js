@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Sigup(props) {
+function SignupPage(props) {
     return (
         <div>
-            Sigup
+            SignupPage
         </div>
     );
 }
 
-export default Sigup;
+export default SignupPage;
