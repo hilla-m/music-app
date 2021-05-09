@@ -1,6 +1,10 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 
-function FavoriteAlbumsPage(props) {
+function FavoriteAlbumsPage({activeUser}) {
+    if(!activeUser){
+        return <Redirect to="/"/>
+    }
     return (
         <div>
             FavoriteAlbumsPage

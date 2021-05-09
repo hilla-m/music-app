@@ -1,6 +1,10 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 
-function ArtistPage(props) {
+function ArtistPage({activeUser}) {
+    if(!activeUser){
+        return <Redirect to="/"/>
+    }
     return (
         <div>
             ArtistPage

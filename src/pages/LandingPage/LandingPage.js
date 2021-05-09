@@ -1,6 +1,10 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 
-function LandingPage(props) {
+function LandingPage({activeUser}) {
+    if(!activeUser){
+        return <Redirect to="/"/>
+    }
     return (
         <div>
             LandingPage

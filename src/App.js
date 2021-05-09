@@ -19,24 +19,24 @@ import { useState } from 'react';
 function App() {
   // const [users, setUsers] = useState(usersJSON.map(plainUser => new UserModel(plainUser)));
   // const [recipes, setRecipes] = useState(recipesJSON.map(plainRecipe => new RecipeModel(plainRecipe)));
-  const [activeUser, setActiveUser] = useState(null);   //(users[0]);
+  const [activeUser, setActiveUser] = useState({id:"123"});   //(users[0]);
  
   return (
     <>
-    <MyMusicNavbar activeUser={activeUser}/>
+    <MyMusicNavbar activeUser={activeUser} onLogout={() => setActiveUser(null)}/>
       <HashRouter>
         <Switch>
-          <Route exact path="/"><LandingPage/></Route>
-          <Route exact path="/home"><HomePage/></Route>
+          <Route exact path="/"><LandingPage activeUser={activeUser}/></Route>
+          <Route exact path="/home"><HomePage activeUser={activeUser}/></Route>
           <Route exact path="/login"><Login/></Route>
           <Route exact path="/signup"><Signup/></Route>
-          <Route exact path="/album"><AlbumPage/></Route>
-          <Route exact path="/search"><SearchingPage/></Route>
-          <Route exact path="/artist"><ArtistPage/></Route>
-          <Route exact path="/all-playlists"><AllPlaylistsPage/></Route>
-          <Route exact path="/playlist"><PlaylistPage/></Route>
-          <Route exact path="/artists"><FavoriteArtistsPage/></Route>
-          <Route exact path="/albums"><FavoriteAlbumsPage/></Route>
+          <Route exact path="/album"><AlbumPage activeUser={activeUser}/></Route>
+          <Route exact path="/search"><SearchingPage activeUser={activeUser}/></Route>
+          <Route exact path="/artist"><ArtistPage activeUser={activeUser}/></Route>
+          <Route exact path="/all-playlists"><AllPlaylistsPage activeUser={activeUser}/></Route>
+          <Route exact path="/playlist"><PlaylistPage activeUser={activeUser}/></Route>
+          <Route exact path="/artists"><FavoriteArtistsPage activeUser={activeUser}/></Route>
+          <Route exact path="/albums"><FavoriteAlbumsPage activeUser={activeUser}/></Route>
         </Switch>
       </HashRouter>
     </>
