@@ -31,7 +31,7 @@ function App() {
         <Switch>
           <Route exact path="/"><LandingPage activeUser={activeUser}/></Route>
           <Route exact path="/home"><HomePage activeUser={activeUser}/></Route>
-          <Route exact path="/login"><LoginPage users={users}/></Route>
+          <Route exact path="/login"><LoginPage users={users} onLogin={user => setActiveUser(user)} activeUser={activeUser}/></Route>
           <Route exact path="/signup"><SignupPage/></Route>
           <Route exact path="/album"><AlbumPage activeUser={activeUser}/></Route>
           <Route exact path="/search"><SearchingPage activeUser={activeUser}/></Route>
