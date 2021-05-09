@@ -1,7 +1,7 @@
 [
 {
     "id": 1,
-    "fullName": "Dana",
+    "name": "Dana",
     "email": "dana@gmail.com",
     "password": "123",
     "playlists" : [1],
@@ -10,7 +10,7 @@
 },
 {
     "id": 2,
-    "fullName": "Ron",
+    "name": "Ron",
     "email": "ron@gmail.com",
     "password": "123",
     "playlists" : [1,2],

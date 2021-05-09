@@ -5,3 +5,9 @@
 .nav-display {
     justify-content: space-between;
 }
+
+.navbar-text{
+    color: white !important;
+    text-align: center;
+    font-weight: bold;
+}
