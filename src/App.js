@@ -17,11 +17,24 @@ import SignupPage from './pages/SignupPage/SignupPage';
 import './App.css';
 import usersJSON from './data/users.json';
 import UserModel from './model/UserModel';
+import AlbumModel from './model/AlbumModel';
+import ArtistModel from './model/artistModel';
 
 
 function App() {
   const [users, setUsers] = useState(usersJSON.map(plainUser => new UserModel(plainUser)));
   const [activeUser, setActiveUser] = useState(users[0]);
+
+  const[albums, setAlbums] = useState([]);
+  const[artists, setArtists] = useState([]);
+
+  useEffect(() => {
+    setAlbums(actorsJson.map(plainAlbum => new AlbumModel(plainAlbum.id, plainAlbum.title, plainAlbum.artistId, plainAlbum.year, plainAlbum.genre, plainAlbum.image)));
+}, []);
+
+useEffect(() => {
+  setArtists(actorsJson.map(plainArtist => new ArtistModel(plainArtist.id, plainArtist.name, plainArtist.image)));
+}, []);
 
   function addUser(name, email, password){
     const newUser = new UserModel ({id: users[users.length-1].id+1, name, email, password});
@@ -35,12 +48,12 @@ function App() {
       <HashRouter>
         <Switch>
           <Route exact path="/"><LandingPage activeUser={activeUser}/></Route>
-          <Route exact path="/home"><HomePage activeUser={activeUser}/></Route>
+          <Route exact path="/home"><HomePage activeUser={activeUser} albums={albums} artists={artists}/></Route>
           <Route exact path="/login"><LoginPage users={users} onLogin={user => setActiveUser(user)} activeUser={activeUser}/></Route>
           <Route exact path="/signup"><SignupPage addUser={addUser} activeUser={activeUser}/></Route>
-          <Route exact path="/album"><AlbumPage activeUser={activeUser}/></Route>
+          <Route exact path="/album"><AlbumPage activeUser={activeUser} albums={albums}/></Route>
           <Route exact path="/search"><SearchingPage activeUser={activeUser}/></Route>
-          <Route exact path="/artist"><ArtistPage activeUser={activeUser}/></Route>
+          <Route exact path="/artist"><ArtistPage activeUser={activeUser} artists={artists}/></Route>
           <Route exact path="/all-playlists"><AllPlaylistsPage activeUser={activeUser}/></Route>
           <Route exact path="/playlist"><PlaylistPage activeUser={activeUser}/></Route>
           <Route exact path="/artists"><FavoriteArtistsPage activeUser={activeUser}/></Route>
