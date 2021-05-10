@@ -42,7 +42,7 @@ function App() {
     <MyMusicNavbar activeUser={activeUser} onLogout={() => setActiveUser(null)}/>
       <HashRouter>
         <Switch>
-          <Route exact path="/"><LandingPage activeUser={activeUser}/></Route>
+          <Route exact path="/"><LandingPage/></Route>
           <Route exact path="/home"><HomePage activeUser={activeUser} albums={albums} artists={artists}/></Route>
           <Route exact path="/login"><LoginPage users={users} onLogin={user => setActiveUser(user)} activeUser={activeUser}/></Route>
           <Route exact path="/signup"><SignupPage addUser={addUser} activeUser={activeUser}/></Route>

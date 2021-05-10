@@ -1,13 +1,13 @@
+import { Carousel } from 'react-bootstrap';
 import React from 'react';
-import { Redirect } from 'react-router';
+import './LandingPage.css';
 
-function LandingPage({activeUser}) {
-    if(!activeUser){
-        return <Redirect to="/"/>
-    }
+function LandingPage() {
+
     return (
-        <div>
-            LandingPage
+        <div className="p-landing">
+            <h1>Welcome To My Music</h1>
+          <img src=""/>
         </div>
     );
 }
