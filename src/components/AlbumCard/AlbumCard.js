@@ -1,11 +1,19 @@
 import React from 'react';
+import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './AlbumCard.css';
 
-function AlbumCard(props) {
+function AlbumCard({ album }) {
     return (
-        <div>
-            AlbumCard
-        </div>
+        <Card className="album-card">
+            <Card.Img className="album-img" variant="top" src={album.image} />
+            <Card.Body>
+                <Card.Title>
+                    <Link to="/album" className="album-link">{album.title}</Link>
+                </Card.Title>
+                <Card.Text> <Link to="/artist" className="artist-link"> {album.artistId}</Link></Card.Text>
+            </Card.Body>
+        </Card>
     );
 }
 

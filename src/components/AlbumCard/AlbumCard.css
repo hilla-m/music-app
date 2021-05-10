@@ -1,0 +1,15 @@
+.album-card {
+    width: 300px !important;
+    /* height: 100%; */
+    margin: 25px;
+    padding: 2px;
+}
+
+.album-card  .card-img-top{
+    /* width: 100%; */
+}
+
+.album-card .album-link ,.album-card .artist-link {
+    text-decoration: none;
+    color: black;
+}

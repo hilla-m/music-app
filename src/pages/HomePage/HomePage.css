@@ -1,4 +1,4 @@
-.p-home{
+.p-home .home-search{
     width: 500px;
     margin: 20px auto;
 }
@@ -19,4 +19,8 @@
     margin: 20px 0 40px 0; 
     font-size: 18px;
     border:none;
+}
+
+.album-cards{
+    margin: 0 auto;
 }
