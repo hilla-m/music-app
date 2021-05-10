@@ -14,7 +14,6 @@ function LoginPage({ users, onLogin, activeUser }) {
 
     function login(e) {
         e.preventDefault();
-        debugger;
         let activeUser = null;
         for (const user of users) {
             if (user.login(email, password)) {
@@ -34,18 +33,18 @@ function LoginPage({ users, onLogin, activeUser }) {
             <h1>Login to My Music</h1>
             <Form onSubmit={login}>
                 <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email address:</Form.Label>
+                    <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password:</Form.Label>
+                    <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
                 </Form.Group>
-                <button type="submit" className="btn">Login</button>
+                <Button type="submit">Login</Button>
             </Form>
             { showInvalidLogin ? <Alert variant="danger">Invalid Credentials!</Alert> : null}
             <p>Don't have an account yet ?</p>
-            <button type="button" className="btn"><Link to="/signup" className="signup-link">Signup for free</Link></button>
+            <Button type="button"><Link to="/signup" className="signup-link">Signup for free</Link></Button>
         </div>
     );
 }

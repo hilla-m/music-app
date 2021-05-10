@@ -15,13 +15,14 @@
     color: white;
 }
 
-.p-login .btn {
+.p-login .btn-primary {
     background-color: rgb(176, 91, 255);
     color: white;
     border-radius: 50px;
     width: 100%;
     margin: 20px 0 40px 0; 
     font-size: 18px;
+    border:none;
 }
 
 .p-login p{
@@ -29,6 +30,7 @@
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 0;
+    color: rgb(133, 133, 133);
 }
 
 .p-login .form-label{

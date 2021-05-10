@@ -21,9 +21,14 @@ import UserModel from './model/UserModel';
 
 function App() {
   const [users, setUsers] = useState(usersJSON.map(plainUser => new UserModel(plainUser)));
-
   const [activeUser, setActiveUser] = useState(users[0]);
- 
+
+  function addUser(name, email, password){
+    const newUser = new UserModel ({id: users[users.length-1].id+1, name, email, password});
+    setUsers(users.concat(newUser));
+    setActiveUser(newUser);
+  }
+
   return (
     <>
     <MyMusicNavbar activeUser={activeUser} onLogout={() => setActiveUser(null)}/>
@@ -32,7 +37,7 @@ function App() {
           <Route exact path="/"><LandingPage activeUser={activeUser}/></Route>
           <Route exact path="/home"><HomePage activeUser={activeUser}/></Route>
           <Route exact path="/login"><LoginPage users={users} onLogin={user => setActiveUser(user)} activeUser={activeUser}/></Route>
-          <Route exact path="/signup"><SignupPage/></Route>
+          <Route exact path="/signup"><SignupPage addUser={addUser} activeUser={activeUser}/></Route>
           <Route exact path="/album"><AlbumPage activeUser={activeUser}/></Route>
           <Route exact path="/search"><SearchingPage activeUser={activeUser}/></Route>
           <Route exact path="/artist"><ArtistPage activeUser={activeUser}/></Route>
