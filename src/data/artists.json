@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Pink Floyd",
+        "image":"https://pyxis.nymag.com/v1/imgs/20b/c5b/fb27425c5dede0f79a3fd6271b97ba7e42-31-pink-floyd-feature.jpg"
+    },
+
+    {
+        "id": 2,
+        "name": "Beyonce",
+        "image":"https://pyxis.nymag.com/v1/imgs/6c0/570/056961772f9239c7ad26e784b020e410ae-beyonce.rsquare.w1200.jpg"
+    },
+
+    {
+        "id": 3,
+        "name": "PLady Gaga",
+        "image":"https://i0.wp.com/escxtra.com/wp-content/uploads/Lady-Gaga.jpg?fit=1200%2C800&ssl=1"
+    }
+
+]
