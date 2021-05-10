@@ -16,25 +16,20 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import SignupPage from './pages/SignupPage/SignupPage';
 import './App.css';
 import usersJSON from './data/users.json';
+import albumsJSON from './data/albums.json';
+import artistsJSON from './data/artists.json';
 import UserModel from './model/UserModel';
 import AlbumModel from './model/AlbumModel';
-import ArtistModel from './model/artistModel';
+import ArtistModel from './model/ArtistModel';
+import { useEffect } from 'react';
 
 
 function App() {
   const [users, setUsers] = useState(usersJSON.map(plainUser => new UserModel(plainUser)));
   const [activeUser, setActiveUser] = useState(users[0]);
 
-  const[albums, setAlbums] = useState([]);
-  const[artists, setArtists] = useState([]);
-
-  useEffect(() => {
-    setAlbums(actorsJson.map(plainAlbum => new AlbumModel(plainAlbum.id, plainAlbum.title, plainAlbum.artistId, plainAlbum.year, plainAlbum.genre, plainAlbum.image)));
-}, []);
-
-useEffect(() => {
-  setArtists(actorsJson.map(plainArtist => new ArtistModel(plainArtist.id, plainArtist.name, plainArtist.image)));
-}, []);
+  const[albums, setAlbums] = useState(albumsJSON.map(plainAlbum => new AlbumModel(plainAlbum)));
+  const[artists, setArtists] = useState(artistsJSON.map(plainArtist => new ArtistModel(plainArtist)));
 
   function addUser(name, email, password){
     const newUser = new UserModel ({id: users[users.length-1].id+1, name, email, password});
