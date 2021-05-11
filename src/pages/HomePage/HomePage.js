@@ -12,6 +12,8 @@ function HomePage({ activeUser, albums, artists }) {
         return <Redirect to="/" />
     }
 
+    // const artistIds = artists.filter(artist => artist.name.toLowerCase().includes(filterText.toLowerCase()));
+
     const filteredAlbums = albums.filter(album => album.title.toLowerCase().includes(filterText.toLowerCase()));
     // || album.artistId  .includes(filterText.toLowerCase()))
 
@@ -20,7 +22,6 @@ function HomePage({ activeUser, albums, artists }) {
     const popAlbumsCards = filteredAlbums.filter(album => album.genre === "Pop");
     const rbAlbumsCards = filteredAlbums.filter(album => album.genre === "R&B");
     const jazzAlbumsCards = filteredAlbums.filter(album => album.genre === "Jazz");
-
 
     // const albumsCards = filteredAlbums.map(album => <Col sm={6} md={2} > <AlbumCard album={album} /></Col>);
 
