@@ -2,61 +2,61 @@
 {
     "id" : 1,
     "title": "Speak to Me",
-    "lebngth":"1:30",
+    "length":"1:30",
     "albumId": 1
 },
 {
     "id" : 2,
     "title": "Breathe in the Air",
-    "lebngth":"2:43",
+    "length":"2:43",
     "albumId": 1
 },
 {
     "id" : 3,
     "title": "On the Run",
-    "lebngth":"3:30",
+    "length":"3:30",
     "albumId": 1
 },
 {
     "id" : 4,
     "title": "Time / Breathe (Reprise)",
-    "lebngth":"7:05",
+    "length":"7:05",
     "albumId": 1
 },
 {
     "id" : 5,
     "title": "The Great Gig in the Sky",
-    "lebngth":"4:15",
+    "length":"4:15",
     "albumId": 1
 },
 {
     "id" : 6,
     "title": "In The Flesh?",
-    "lebngth":"3:18",
+    "length":"3:18",
     "albumId": 2
 },
 {
     "id" : 7,
     "title": "The Thin Ice",
-    "lebngth":"2:26",
+    "length":"2:26",
     "albumId": 2
 },
 {
     "id" : 8,
     "title": "Another Brick In the Wall, Pt. 1",
-    "lebngth":"3:12",
+    "length":"3:12",
     "albumId": 2
 },
 {
     "id" : 9,
     "title": "The Happiest Days of Our Lives",
-    "lebngth":"1:50",
+    "length":"1:50",
     "albumId": 2
 },
 {
     "id" : 10,
     "title": "Another Brick In the Wall, Pt. 2",
-    "lebngth":"3:58",
+    "length":"3:58",
     "albumId": 2
 }
 ]

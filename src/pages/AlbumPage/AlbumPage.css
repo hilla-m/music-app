@@ -1,0 +1,15 @@
+.p-album .album-row:first-child{
+    display: flex;
+    justify-content: center;
+
+}
+
+.p-album .album-img img{
+    width: 250px;
+    margin: 40px;
+} 
+
+.p-album .album-details{
+    margin: 40px;
+} 
+
