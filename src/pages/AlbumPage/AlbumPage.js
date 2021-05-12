@@ -3,9 +3,10 @@ import { ListGroup, Row, Spinner } from 'react-bootstrap';
 import { Redirect, useParams } from 'react-router';
 import './AlbumPage.css';
 
-function AlbumPage({ activeUser, albums, tracks}) {
+function AlbumPage({ activeUser, albums, tracks, artists}) {
     const {index} = useParams();
     const currentalbum = albums[index];
+    const currentArtist = artists.find(artist => artist.id === currentalbum.artistId);
 
     if (!activeUser) {
         return <Redirect to="/" />
@@ -18,7 +19,7 @@ function AlbumPage({ activeUser, albums, tracks}) {
             <div className="album-row">
                 <div className="album-details">
                     <h1>{currentalbum.title}</h1>
-                    <p>{currentalbum.artistId}</p>
+                    <p>{currentArtist.name}</p>
                     <p>{currentalbum.year}</p>
                     <p>{currentalbum.genre}</p>
                 </div>

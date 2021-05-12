@@ -22,8 +22,7 @@ function AlbumCard({ album , artist}) {
                     <Link to={"/album/" + index} className="album-link">{album.title}</Link>
                 </Card.Title>
                 <Card.Text> 
-                    <Link to="/artist" className="artist-link"> {album.artistId}</Link>  
-                    {/* {artist.name} */}
+                    <Link to={"/artist/" + artist.id} className="artist-link"> {artist.name}</Link>  
                     </Card.Text>
             </Card.Body>
         </Card>
