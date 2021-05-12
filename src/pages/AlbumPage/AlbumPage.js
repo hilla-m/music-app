@@ -1,39 +1,44 @@
 import React from 'react';
 import { ListGroup, Row, Spinner } from 'react-bootstrap';
-import { Redirect } from 'react-router';
+import { Redirect, useParams } from 'react-router';
 import './AlbumPage.css';
 
-function AlbumPage({ activeUser, album, tracks}) {
+function AlbumPage({ activeUser, albums, tracks}) {
+    const {index} = useParams();
+    const currentalbum = albums[index];
+
     if (!activeUser) {
         return <Redirect to="/" />
     }
 
-    // const albumTracks = tracks.filter(track => track.albumId === album.id);
+      const albumTracks = tracks.filter(track => track.albumId === currentalbum.id);
 
     return (
         <div className="p-album">
             <div className="album-row">
                 <div className="album-details">
-                    <h1>album.title</h1>
-                    <p>album.artistId</p>
-                    <p>album.year</p>
-                    <p>album.genre</p>
+                    <h1>{currentalbum.title}</h1>
+                    <p>{currentalbum.artistId}</p>
+                    <p>{currentalbum.year}</p>
+                    <p>{currentalbum.genre}</p>
                 </div>
                 <div className="album-img">
-                    <img src="music-logo.jpg" />
+                    <img src={currentalbum.image} />
                 </div>
             </div>
             <div className="album-row">
                 <h3>Track Listing</h3>
-                {/* <div className="album-tracks">
-                {albumTracks ?
-                    <ListGroup>
-                        {albumTracks.map(track =>  <ListGroup.Item>{track.title} {track.length}</ListGroup.Item>)}
-                    </ListGroup> :
-                    <Spinner animation="border" />
-                }
-                </div> */}
-                
+                <div className="album-tracks">
+                {/* {albumTracks.length > 0 ? */}
+                    
+                        {albumTracks.map(track => <ListGroup horizontal>
+                             <ListGroup.Item>{track.title}</ListGroup.Item> 
+                             <ListGroup.Item>{track.length}</ListGroup.Item>
+                             </ListGroup> )}
+                   
+                {/* : null } */}
+                </div>
+
             </div>
         </div>
     );

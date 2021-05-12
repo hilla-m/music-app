@@ -14,8 +14,13 @@ function HomePage({ activeUser, albums, artists }) {
 
     // const artistIds = artists.filter(artist => artist.name.toLowerCase().includes(filterText.toLowerCase()));
 
-    const filteredAlbums = albums.filter(album => album.title.toLowerCase().includes(filterText.toLowerCase()));
-    // || album.artistId  .includes(filterText.toLowerCase()))
+
+    // write here code that converts the artists array into artists object
+    // const artistsMap = .... artists;
+
+    
+    const filteredAlbums = albums.filter(album => album.title.toLowerCase().includes(filterText.toLowerCase()));  // || album.artistId  
+
 
     //albums by genre
     const rockAlbumsCards = filteredAlbums.filter(album => album.genre === "Rock");
@@ -34,35 +39,34 @@ function HomePage({ activeUser, albums, artists }) {
                 </Form>
             </div>
             <div className="albums-cards">
-                {/* {albums ? */}
-                {rockAlbumsCards ?
+                {rockAlbumsCards.length > 0 ?
                     <Row>
                         <h4>Rock</h4>
-                        {rockAlbumsCards.map(album => <Col sm={6} md={2} > <AlbumCard album={album} /></Col>)}
-                        {/* {albumsCards} */}
+                        {rockAlbumsCards.map(album => <Col sm={6} md={2} > <AlbumCard album={album} artist={artists.find(artist => artist.id === album.artistId)}/></Col>)}
+                        {/* artist={artistsMap[album.artistId]} */}
                     </Row> :
-                    <Spinner animation="border" />
+                    null
                 }
-                {popAlbumsCards ?
+                {popAlbumsCards.length > 0 ?
                     <Row>
                         <h4>Pop</h4>
-                        {popAlbumsCards.map(album => <Col sm={6} md={2} > <AlbumCard album={album} /></Col>)}
+                        {popAlbumsCards.map(album => <Col sm={6} md={2} > <AlbumCard album={album} artist={artists.find(artist => artist.id === album.artistId)}/></Col>)}
                     </Row> :
-                    <Spinner animation="border" />
+                    null
                 }
-                {rbAlbumsCards ?
+                {rbAlbumsCards.length > 0 ?
                     <Row>
                         <h4>R&B</h4>
-                        {rbAlbumsCards.map(album => <Col sm={6} md={2} > <AlbumCard album={album} /></Col>)}
+                        {rbAlbumsCards.map(album => <Col sm={6} md={2} > <AlbumCard album={album} artist={artists.find(artist => artist.id === album.artistId)}/></Col>)}
                     </Row> :
-                    <Spinner animation="border" />
+                    null
                 }
-                 {jazzAlbumsCards ?
+                 {jazzAlbumsCards.length > 0 ?
                     <Row>
                         <h4>Jazz</h4>
-                        {jazzAlbumsCards.map(album => <Col sm={6} md={2} > <AlbumCard album={album} /></Col>)}
+                        {jazzAlbumsCards.map(album => <Col sm={6} md={2} > <AlbumCard album={album} artist={artists.find(artist => artist.id === album.artistId)}/></Col>)}
                     </Row> :
-                    <Spinner animation="border" />
+                    null
                 }
             </div>
         </div>
