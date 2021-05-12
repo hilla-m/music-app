@@ -56,7 +56,7 @@ function App() {
           <Route exact path="/signup"><SignupPage addUser={addUser} activeUser={activeUser}/></Route>
           <Route exact path="/album/:index"><AlbumPage activeUser={activeUser} albums={albums} tracks={tracks} artists={artists}/></Route>
           <Route exact path="/search"><SearchingPage activeUser={activeUser}/></Route>
-          <Route exact path="/artist"><ArtistPage activeUser={activeUser} artists={artists}/></Route>
+          <Route exact path="/artist/:index"><ArtistPage activeUser={activeUser} albums={albums} artists={artists}/></Route>
           <Route exact path="/all-playlists"><AllPlaylistsPage activeUser={activeUser} playlists={playlists}/></Route>
           <Route exact path="/playlist"><PlaylistPage activeUser={activeUser} playlists={playlists}/></Route>
           <Route exact path="/artists"><FavoriteArtistsPage activeUser={activeUser}/></Route>

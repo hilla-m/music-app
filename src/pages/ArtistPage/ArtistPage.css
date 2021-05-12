@@ -1,0 +1,20 @@
+.p-artist .artist-img{
+    width: 250px;
+    height: 250px;
+    margin: 40px;
+    object-fit:cover;
+}
+
+.p-artist .artist{
+    display: flex;
+    justify-content: center;
+}
+
+
+.p-artist h1{
+    margin: 40px;
+}  
+
+.p-artist .artist-albums{
+    padding-top: 50px;
+}
