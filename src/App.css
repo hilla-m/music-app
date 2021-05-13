@@ -1,11 +1,16 @@
+*{
+    font-family: 'Nunito', sans-serif;
+}
 
 html {
     height: 100%;
+
 }
 body {
     height: 100%;
     /* margin: 0; */
     background-repeat: no-repeat;
+    background-image: linear-gradient( rgb(176, 91, 255) , rgb(211, 245, 250));
     /* background-attachment: fixed;    */
      /* background-image: url("https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"); */
 

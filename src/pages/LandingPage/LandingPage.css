@@ -1,10 +1,11 @@
+
 .p-landing h1{
     text-align: center;
     font-weight: bold;
     font-size: 60px;
     color: white;
     margin: 250px 0 30px 0;
-    background-color: rgb(176, 91, 255);
+    /* background-color: rgb(176, 91, 255); */
     padding: 30px;
 }
 

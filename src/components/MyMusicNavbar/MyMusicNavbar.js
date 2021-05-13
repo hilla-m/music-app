@@ -5,8 +5,8 @@ import '../MyMusicNavbar/MyMusicNavbar.css'
 function MyMusicNavbar({ activeUser , onLogout }) {
         return (
         <Navbar variant="dark" className="navbar navbar-bg" expand="lg">
-            <Navbar.Brand href="#home">My Music
-            {/* <img src="music-logo.jpg" width="40" className="logo"/> */}
+            <Navbar.Brand href="#home">
+            <img src="logo.jpg" width="60" className="logo"/>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="nav-display">
