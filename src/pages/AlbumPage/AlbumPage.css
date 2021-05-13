@@ -13,3 +13,26 @@
     margin: 40px;
 } 
 
+.p-album .album-tracks{
+    margin-left: 30px;
+    width: 50%;
+}
+
+.p-album h4{
+    font-weight: bold;
+    margin: 30px;
+}
+
+
+.p-album .tracks-btn , .p-album a{
+    /* background-color: rgb(176, 91, 255); */
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    /* border-radius: 20px; */
+}
+
+.p-album .td-btn{
+    text-align: center;
+}
