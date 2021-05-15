@@ -4,18 +4,16 @@
     "name": "Dana",
     "email": "dana@gmail.com",
     "password": "123",
-    "playlists" : [1],
-    "albums":[],
-    "artists":[]
+    "albums":[1,2],
+    "artists":[1]
 },
 {
     "id": 2,
     "name": "Ron",
     "email": "ron@gmail.com",
     "password": "123",
-    "playlists" : [1,2],
-    "albums":[],
-    "artists":[]
+    "albums":[4],
+    "artists":[2]
 }
 
 ]

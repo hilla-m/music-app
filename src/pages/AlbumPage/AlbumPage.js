@@ -2,26 +2,38 @@ import React from 'react';
 import { ListGroup, Row, Spinner, Table, Button } from 'react-bootstrap';
 import { Redirect, useParams } from 'react-router';
 import './AlbumPage.css';
-import { FaPlay, FaPause, FaPlus, FaPauseCircle , FaPlayCircle , FaPlusCircle} from "react-icons/fa";
+import { FaPlay, FaPause, FaPlus, FaPauseCircle, FaPlayCircle, FaPlusCircle } from "react-icons/fa";
 import { useState } from 'react';
+import ReactAudioPlayer from 'react-audio-player';
 
 
 function AlbumPage({ activeUser, albums, tracks, artists, handlePlayTrack }) {
     const { index } = useParams();
     const currentalbum = albums[index];
     const currentArtist = artists.find(artist => artist.id === currentalbum.artistId);
-    // const [showPlayLogo, setShowPlayLogo] = useState(true);
 
-    let playLogo;
-
-        if (!activeUser) {
+    if (!activeUser) {
         return <Redirect to="/" />
     }
-    
+
     const albumTracks = tracks.filter(track => track.albumId === currentalbum.id);
 
     //track num
     let i = 1;
+
+    function playTrack(id, value) {
+
+        handlePlayTrack(id, value);
+
+        //play / pause track
+        const currentTrack = tracks.find(track => track.id === id);
+        let audioObj = new Audio(currentTrack.file);
+        if (currentTrack.play) {
+            audioObj.play();
+        } else {
+            audioObj.pause(); //not working
+        }
+    }
 
     return (
         <div className="p-album">
@@ -49,13 +61,15 @@ function AlbumPage({ activeUser, albums, tracks, artists, handlePlayTrack }) {
                                         <td>{i++}</td>
                                         <td>{track.title}</td>
                                         <td>{track.length}</td>
-                                        <td className="td-btn"><a className="tracks-btn" onClick={() => handlePlayTrack(track.id, !track.play)}>{!track.play ?  <FaPlayCircle /> : <FaPauseCircle />}</a></td>
-                                        <td className="td-btn"><a className="tracks-btn" ><FaPlusCircle/></a></td>
+                                        <td className="td-btn"><a className="tracks-btn" onClick={() => playTrack(track.id, !track.play)}>{!track.play ? <FaPlayCircle /> : <FaPauseCircle />}</a></td>
+                                        <td className="td-btn"><a className="tracks-btn" ><FaPlusCircle /></a></td>
 
                                     </tr>)}
                             </tbody>
                         </Table>
+
                     </div>
+                    <ReactAudioPlayer src="my_audio_file.ogg" autoPlay controls/>
                 </div>
                 : null}
         </div>
