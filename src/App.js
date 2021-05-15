@@ -45,6 +45,12 @@ function App() {
     setActiveUser(newUser);
   }
 
+  function handlePlayTrack(id, value) {
+    const tempTracks = [...tracks];
+    tempTracks.map(track => { if (track.id === id) { track.play = value } else {track.play = false}});
+    setTracks(tempTracks);
+  }
+
   return (
     <>
     <MyMusicNavbar activeUser={activeUser} onLogout={() => setActiveUser(null)}/>
@@ -54,7 +60,7 @@ function App() {
           <Route exact path="/home"><HomePage activeUser={activeUser} albums={albums} artists={artists}/></Route>
           <Route exact path="/login"><LoginPage users={users} onLogin={user => setActiveUser(user)} activeUser={activeUser}/></Route>
           <Route exact path="/signup"><SignupPage addUser={addUser} activeUser={activeUser}/></Route>
-          <Route exact path="/album/:index"><AlbumPage activeUser={activeUser} albums={albums} tracks={tracks} artists={artists}/></Route>
+          <Route exact path="/album/:index"><AlbumPage activeUser={activeUser} albums={albums} tracks={tracks} artists={artists} handlePlayTrack={handlePlayTrack}/></Route>
           <Route exact path="/search"><SearchingPage activeUser={activeUser}/></Route>
           <Route exact path="/artist/:index"><ArtistPage activeUser={activeUser} albums={albums} artists={artists}/></Route>
           <Route exact path="/all-playlists"><AllPlaylistsPage activeUser={activeUser} playlists={playlists}/></Route>

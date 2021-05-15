@@ -18,11 +18,11 @@ function HomePage({ activeUser, albums, artists }) {
     // write here code that converts the artists array into artists object
     const artistsMap =[];  //.... artists;
     
-    for (let i=0; i<artists.length; i++){
-        // const index = i+1;
-        const artist = {i: artists[i]};
-        artistsMap.push(artist);
-    }
+    // for (let i=0; i<artists.length; i++){
+    //     // const index = i+1;
+    //     const artist = {i: artists[i]};
+    //     artistsMap.push(artist);
+    // }
     
     const filteredAlbums = albums.filter(album => album.title.toLowerCase().includes(filterText.toLowerCase()));  // || album.artistId  
 

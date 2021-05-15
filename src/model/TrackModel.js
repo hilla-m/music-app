@@ -4,6 +4,7 @@ class TrackModel {
         this.title= plainTrack.title;
         this.length= plainTrack.length;
         this.albumId= plainTrack.albumId;
+        this.play = plainTrack.play;
     }
 
 }

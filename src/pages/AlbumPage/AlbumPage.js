@@ -6,25 +6,18 @@ import { FaPlay, FaPause, FaPlus, FaPauseCircle , FaPlayCircle , FaPlusCircle} f
 import { useState } from 'react';
 
 
-function AlbumPage({ activeUser, albums, tracks, artists }) {
+function AlbumPage({ activeUser, albums, tracks, artists, handlePlayTrack }) {
     const { index } = useParams();
     const currentalbum = albums[index];
     const currentArtist = artists.find(artist => artist.id === currentalbum.artistId);
-    const [showPlayLogo, setShowPlayLogo] = useState(true);
+    // const [showPlayLogo, setShowPlayLogo] = useState(true);
 
     let playLogo;
 
         if (!activeUser) {
         return <Redirect to="/" />
     }
-
-    if (showPlayLogo) {
-        playLogo = <FaPlayCircle />;
-    } else {
-        playLogo = <FaPauseCircle />;
-    }
-
-
+    
     const albumTracks = tracks.filter(track => track.albumId === currentalbum.id);
 
     //track num
@@ -56,7 +49,7 @@ function AlbumPage({ activeUser, albums, tracks, artists }) {
                                         <td>{i++}</td>
                                         <td>{track.title}</td>
                                         <td>{track.length}</td>
-                                        <td className="td-btn"><a className="tracks-btn" onClick={() => setShowPlayLogo(!showPlayLogo)}>{playLogo}</a></td>
+                                        <td className="td-btn"><a className="tracks-btn" onClick={() => handlePlayTrack(track.id, !track.play)}>{!track.play ?  <FaPlayCircle /> : <FaPauseCircle />}</a></td>
                                         <td className="td-btn"><a className="tracks-btn" ><FaPlusCircle/></a></td>
 
                                     </tr>)}
