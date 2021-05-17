@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ListGroup, Table } from 'react-bootstrap';
 import { FaPlusCircle, FaRegHeart } from 'react-icons/fa';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
+import NewPlaylistModal from '../../components/NewPlaylistModal/NewPlaylistModal';
 import PlaylistPage from '../PlaylistPage/PlaylistPage';
 import './AllPlaylistsPage.css';
 
 function AllPlaylistsPage({ activeUser, playlists }) {
+    const [showNewPlaylistModal , setShowNewPlaylistModal] = useState(false);
+    
     if (!activeUser) {
         return <Redirect to="/" />
     }
@@ -19,7 +22,7 @@ function AllPlaylistsPage({ activeUser, playlists }) {
     return (
         <div className="p-all-playlists">
             {/* <div className="row"> */}
-                <FaPlusCircle className="plus-icon"/>
+                <FaPlusCircle className="plus-icon" onClick={() => setShowNewPlaylistModal(true)}/>
                 <h1>My Playlists</h1>
             {/* </div> */}
             {userPlaylists.length > 0 ?
@@ -35,6 +38,7 @@ function AllPlaylistsPage({ activeUser, playlists }) {
                     </Table>
                 </div>
                 : null}
+                <NewPlaylistModal show={showNewPlaylistModal} onClose={() => setShowNewPlaylistModal(false)}/>
         </div>
     );
 }

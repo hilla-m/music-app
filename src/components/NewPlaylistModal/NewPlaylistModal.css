@@ -1,0 +1,23 @@
+.m-new-playlist .btn{
+    background-color: rgb(176, 91, 255);
+    color: white;
+    border-radius: 50px;
+    width: 30%;
+    margin: 10px auto;
+    font-size: 18px;
+    border:none;
+}
+
+.m-new-playlist .close{
+    background-color: rgb(176, 91, 255);
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+    border:none;
+    font-size: 18px;
+    color: white;
+}
+
+.m-new-playlist .sr-only{
+    display: none;
+}
