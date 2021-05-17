@@ -3,7 +3,7 @@
         "id": 1,
         "title": "The Dark Side of the Moon",
         "artistId": 1,
-        "yaer": "1973",
+        "year": "1973",
         "genre" :"Rock",
         "image":"https://miro.medium.com/max/2480/1*8FkvzbSdSJ4HNxtuZo5kLg.jpeg"
     },
@@ -11,7 +11,7 @@
         "id": 2,
         "title": "The Wall",
         "artistId": 1,
-        "yaer": "1979",
+        "year": "1979",
         "genre" :"Rock",
         "image":"https://upload.wikimedia.org/wikipedia/he/1/1d/Pink_Floyd_The_Wall.png"
     },
@@ -19,7 +19,7 @@
         "id": 3,
         "title": "Lemonade",
         "artistId": 2,
-        "yaer": "2016",
+        "year": "2016",
         "genre" :"R&B",
         "image":"https://cdn.vox-cdn.com/thumbor/CRayvWwJnFmEwZuegRkVoT0lO9U=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/15798288/20160424-beyonce-lemonade-album.0.1484310357.jpg"
     },
@@ -27,7 +27,7 @@
         "id": 4,
         "title": "The Fame",
         "artistId": 3,
-        "yaer": "2008",
+        "year": "2008",
         "genre" :"Pop",
         "image":"https://images-na.ssl-images-amazon.com/images/I/71NzKQWEtNL._AC_SL1400_.jpg"
     }

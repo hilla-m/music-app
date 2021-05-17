@@ -16,6 +16,10 @@ margin: 30px;
 
 }
 
+.p-all-playlists .plus-icon:hover{
+    color: black;
+}
+
 .p-all-playlists .playlists-tbl{
     margin-left: 30px;
     /* width: 50%; */
@@ -27,4 +31,8 @@ margin: 30px;
     color: white;
     border: none;
     cursor: pointer;
+}
+
+.p-all-playlists .playlist-link:hover{
+color:  rgb(176, 91, 255);
 }

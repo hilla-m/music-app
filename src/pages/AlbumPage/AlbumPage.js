@@ -40,9 +40,9 @@ function AlbumPage({ activeUser, albums, tracks, artists, handlePlayTrack }) {
             <div className="album-row">
                 <div className="album-details">
                     <h1>{currentalbum.title}</h1>
-                    <p>{currentArtist.name}</p>
-                    <p>{currentalbum.year}</p>
-                    <p>{currentalbum.genre}</p>
+                    <h3>{currentArtist.name}</h3>
+                    <h5>{currentalbum.year}</h5>
+                    <h5>{currentalbum.genre}</h5>
                 </div>
                 <div className="album-img">
                     <img src={currentalbum.image} />
