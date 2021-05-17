@@ -2,6 +2,10 @@
     font-family: 'Nunito', sans-serif;
 }
 
+* h1 , h4{
+    color: white;
+}
+
 html {
     height: 100%;
 

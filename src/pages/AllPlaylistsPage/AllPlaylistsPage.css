@@ -1,0 +1,30 @@
+ .p-all-playlists {
+width: 50%;
+} 
+
+.p-all-playlists h1 {
+margin: 30px;
+}
+
+.p-all-playlists .plus-icon{
+    float: right;
+    /* margin-right: 30px; */
+    color: white;
+    height: 2.5em !important;
+    width: 2.5em !important;
+    cursor: pointer;
+
+}
+
+.p-all-playlists .playlists-tbl{
+    margin-left: 30px;
+    /* width: 50%; */
+}
+
+.p-all-playlists .playlist-link{
+    text-decoration: none;
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
