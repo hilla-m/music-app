@@ -7,7 +7,7 @@ import NewPlaylistModal from '../../components/NewPlaylistModal/NewPlaylistModal
 import PlaylistPage from '../PlaylistPage/PlaylistPage';
 import './AllPlaylistsPage.css';
 
-function AllPlaylistsPage({ activeUser, playlists }) {
+function AllPlaylistsPage({ activeUser, playlists, onAddPlaylist }) {
     const [showNewPlaylistModal , setShowNewPlaylistModal] = useState(false);
     
     if (!activeUser) {
@@ -38,7 +38,7 @@ function AllPlaylistsPage({ activeUser, playlists }) {
                     </Table>
                 </div>
                 : null}
-                <NewPlaylistModal show={showNewPlaylistModal} onClose={() => setShowNewPlaylistModal(false)}/>
+                <NewPlaylistModal show={showNewPlaylistModal} onClose={() => setShowNewPlaylistModal(false)} onCreate={onAddPlaylist}/>
         </div>
     );
 }

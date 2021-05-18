@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal, Button, Form, Col, Row } from 'react-bootstrap';
 import './NewPlaylistModal.css';
 
-function NewPlaylistModal({ show, onClose }) {
+function NewPlaylistModal({ show, onClose, onCreate }) {
+    const [playlistName , setPlaylistName] = useState("");
+
+    function createPlaylist () {
+        debugger;
+        setPlaylistName("");
+        onCreate(playlistName);
+        onClose();
+    }
+
     return (
         <Modal className="m-new-playlist" show={show} onHide={onClose}>
             <Modal.Header closeButton>
@@ -15,14 +24,13 @@ function NewPlaylistModal({ show, onClose }) {
                             Playlist name
                         </Form.Label>
                         <Col sm={9}>
-                            <Form.Control type="text" />
-                            {/* value={} onChange={e => set(e.target.value)} */}
+                            <Form.Control type="text" value={playlistName} onChange={e => setPlaylistName(e.target.value)}/>
                         </Col>
                     </Form.Group>
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={onClose}>
+                <Button variant="secondary" onClick={createPlaylist}>
                     Add
           </Button>
 

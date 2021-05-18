@@ -50,6 +50,15 @@ function App() {
     setTracks(tempTracks);
   }
 
+  function addPlaylist(playlistName) {
+    const newPlaylist = new PlaylistModel({
+      id: playlists[playlists.length-1].id +1,
+      title: playlistName,
+      userId: activeUser.id
+    });
+
+    setPlaylists(playlists.concat(newPlaylist));
+  }
   return (
     <>
     <MyMusicNavbar activeUser={activeUser} onLogout={() => setActiveUser(null)}/>
@@ -62,7 +71,7 @@ function App() {
           <Route exact path="/album/:index"><AlbumPage activeUser={activeUser} albums={albums} tracks={tracks} artists={artists} handlePlayTrack={handlePlayTrack}/></Route>
           <Route exact path="/search"><SearchingPage activeUser={activeUser}/></Route>
           <Route exact path="/artist/:index"><ArtistPage activeUser={activeUser} albums={albums} artists={artists}/></Route>
-          <Route exact path="/all-playlists"><AllPlaylistsPage activeUser={activeUser} playlists={playlists}/></Route>
+          <Route exact path="/all-playlists"><AllPlaylistsPage activeUser={activeUser} playlists={playlists} onAddPlaylist={addPlaylist}/></Route>
           <Route exact path="/playlist"><PlaylistPage activeUser={activeUser} playlists={playlists}/></Route>
           <Route exact path="/artists"><FavoriteArtistsPage activeUser={activeUser}/></Route>
           <Route exact path="/albums"><FavoriteAlbumsPage activeUser={activeUser}/></Route>

@@ -5,6 +5,8 @@ import './AlbumPage.css';
 import { FaPlay, FaPause, FaPlus, FaPauseCircle, FaPlayCircle, FaPlusCircle } from "react-icons/fa";
 import { useState } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
+import Player from '@madzadev/audio-player'
+import '@madzadev/audio-player/dist/index.css'
 
 
 function AlbumPage({ activeUser, albums, tracks, artists, handlePlayTrack }) {
@@ -21,12 +23,14 @@ function AlbumPage({ activeUser, albums, tracks, artists, handlePlayTrack }) {
     //track num
     let i = 1;
 
+    let currentTrack ; //= tracks[0]
+
     function playTrack(id, value) {
 
         handlePlayTrack(id, value);
 
         //play / pause track
-        const currentTrack = tracks.find(track => track.id === id);
+        currentTrack = tracks.find(track => track.id === id);
         let audioObj = new Audio(currentTrack.file);
         if (currentTrack.play) {
             audioObj.play();
@@ -69,9 +73,18 @@ function AlbumPage({ activeUser, albums, tracks, artists, handlePlayTrack }) {
                         </Table>
 
                     </div>
-                    <ReactAudioPlayer src="my_audio_file.ogg" autoPlay controls/>
                 </div>
                 : null}
+
+                {/* <ReactAudioPlayer src="my_audio_file.ogg" autoPlay controls/> */}
+
+                 {currentTrack ? 
+                    <Player trackList={currentTrack}
+                    includeTags={false}
+                    includeSearch={false}
+                    showPlaylist={true}
+                    autoPlayNextTrack={true}/>
+                    : null}
         </div>
     );
 }
