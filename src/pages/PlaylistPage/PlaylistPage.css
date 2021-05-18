@@ -1,0 +1,20 @@
+.p-playlist h1{
+    font-weight: bold;
+    margin: 30px;
+}
+
+.p-playlist .playlist-tbl{
+    margin-left: 30px;
+    width: 50%;
+}
+
+.p-playlist .tracks-btn , .p-playlist a{
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.p-playlist .td-btn{
+    text-align: center;
+}

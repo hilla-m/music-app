@@ -72,7 +72,7 @@ function App() {
           <Route exact path="/search"><SearchingPage activeUser={activeUser}/></Route>
           <Route exact path="/artist/:index"><ArtistPage activeUser={activeUser} albums={albums} artists={artists}/></Route>
           <Route exact path="/all-playlists"><AllPlaylistsPage activeUser={activeUser} playlists={playlists} onAddPlaylist={addPlaylist}/></Route>
-          <Route exact path="/playlist"><PlaylistPage activeUser={activeUser} playlists={playlists}/></Route>
+          <Route exact path="/playlist/:index"><PlaylistPage activeUser={activeUser}  playlists={playlists} tracks={tracks} handlePlayTrack={handlePlayTrack}/></Route>
           <Route exact path="/artists"><FavoriteArtistsPage activeUser={activeUser}/></Route>
           <Route exact path="/albums"><FavoriteAlbumsPage activeUser={activeUser}/></Route>
         </Switch>

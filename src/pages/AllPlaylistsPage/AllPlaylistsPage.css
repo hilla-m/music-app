@@ -3,7 +3,8 @@ width: 50%;
 } 
 
 .p-all-playlists h1 {
-margin: 30px;
+    font-weight: bold;
+    margin: 30px;
 }
 
 .p-all-playlists .plus-icon{

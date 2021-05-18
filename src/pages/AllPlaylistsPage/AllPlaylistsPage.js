@@ -9,7 +9,7 @@ import './AllPlaylistsPage.css';
 
 function AllPlaylistsPage({ activeUser, playlists, onAddPlaylist }) {
     const [showNewPlaylistModal , setShowNewPlaylistModal] = useState(false);
-    
+
     if (!activeUser) {
         return <Redirect to="/" />
     }
@@ -32,7 +32,7 @@ function AllPlaylistsPage({ activeUser, playlists, onAddPlaylist }) {
                             {userPlaylists.map(playlist =>
                                 <tr>
                                     <td>{i++}</td>
-                                    <td><Link to={"/playlist/" + playlist.id} className="playlist-link" onClick={() => <PlaylistPage activeUser={activeUser} currentPlaylist={playlist} />} >{playlist.title}</Link></td>
+                                    <td><Link to={"/playlist/" + playlist.id} className="playlist-link">{playlist.title}</Link></td>
                                 </tr>)}
                         </tbody>
                     </Table>

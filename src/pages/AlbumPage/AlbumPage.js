@@ -11,14 +11,14 @@ import '@madzadev/audio-player/dist/index.css'
 
 function AlbumPage({ activeUser, albums, tracks, artists, handlePlayTrack }) {
     const { index } = useParams();
-    const currentalbum = albums[index];
-    const currentArtist = artists.find(artist => artist.id === currentalbum.artistId);
+    const currentAlbum = albums[index];
+    const currentArtist = artists.find(artist => artist.id === currentAlbum.artistId);
 
     if (!activeUser) {
         return <Redirect to="/" />
     }
 
-    const albumTracks = tracks.filter(track => track.albumId === currentalbum.id);
+    const albumTracks = tracks.filter(track => track.albumId === currentAlbum.id);
 
     //track num
     let i = 1;
@@ -43,13 +43,13 @@ function AlbumPage({ activeUser, albums, tracks, artists, handlePlayTrack }) {
         <div className="p-album">
             <div className="album-row">
                 <div className="album-details">
-                    <h1>{currentalbum.title}</h1>
+                    <h1>{currentAlbum.title}</h1>
                     <h3>{currentArtist.name}</h3>
-                    <h5>{currentalbum.year}</h5>
-                    <h5>{currentalbum.genre}</h5>
+                    <h5>{currentAlbum.year}</h5>
+                    <h5>{currentAlbum.genre}</h5>
                 </div>
                 <div className="album-img">
-                    <img src={currentalbum.image} />
+                    <img src={currentAlbum.image} />
                 </div>
             </div>
 

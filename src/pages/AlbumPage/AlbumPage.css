@@ -1,7 +1,6 @@
 .p-album .album-row:first-child{
     display: flex;
     justify-content: center;
-
 }
 
 .p-album .album-img img{
