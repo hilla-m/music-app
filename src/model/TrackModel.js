@@ -8,7 +8,7 @@ class TrackModel {
         this.file = plainTrack.file;
         
         this.url = plainTrack.file;
-        this.tags = plainTrack.albumId;
+        this.tags = [''];
     }
 
 }

@@ -9,7 +9,7 @@ import { Redirect, useParams } from 'react-router';
 function PlaylistPage({activeUser, playlists, tracks, handlePlayTrack}) {
 
     const { index } = useParams();
-    const currentPlaylist = playlists[index];
+    const currentPlaylist = playlists[index-1];
 
     if (!activeUser) {
         return <Redirect to="/" />
@@ -57,9 +57,10 @@ function PlaylistPage({activeUser, playlists, tracks, handlePlayTrack}) {
                     </div>
                     : null}
 
-                {currentTrack ?
-                    <Player trackList={currentTrack}
-                        includeTags={false}
+                {currentTracks ?
+                    <Player
+                        trackList={currentTracks}
+                        includeTags={true}
                         includeSearch={false}
                         showPlaylist={true}
                         autoPlayNextTrack={true} />

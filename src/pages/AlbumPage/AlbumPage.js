@@ -76,11 +76,11 @@ function AlbumPage({ activeUser, albums, tracks, artists, handlePlayTrack }) {
                 </div>
                 : null}
 
-                {/* <ReactAudioPlayer src="my_audio_file.ogg" autoPlay controls/> */}
+                {/* <ReactAudioPlayer src={currentTrack} autoPlay controls/> */}
 
                  {currentTrack ? 
                     <Player trackList={currentTrack}
-                    includeTags={false}
+                    includeTags={true}
                     includeSearch={false}
                     showPlaylist={true}
                     autoPlayNextTrack={true}/>
