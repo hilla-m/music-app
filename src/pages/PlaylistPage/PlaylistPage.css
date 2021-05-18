@@ -32,3 +32,18 @@
     font-family: 'Nunito', sans-serif !important;
     margin-top: 100px;
 }
+
+.p-playlist .icons-btn{
+    color: white;
+    float: right;
+    margin-right: 30px;
+}
+
+.p-playlist .icon-btn{
+margin: 8px;
+    /* float: right; */
+/* color: white; */
+height: 2.5em !important;
+width: 2.5em !important;
+cursor: pointer;
+}

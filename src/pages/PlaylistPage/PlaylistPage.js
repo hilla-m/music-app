@@ -1,15 +1,15 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
-import { FaMinusCircle, FaPauseCircle, FaPlayCircle } from 'react-icons/fa';
+import { FaMinusCircle, FaPauseCircle, FaPlayCircle, FaPlusCircle, FaRegEdit } from 'react-icons/fa';
 import './PlaylistPage.css';
 import Player from '@madzadev/audio-player'
 import '@madzadev/audio-player/dist/index.css'
 import { Redirect, useParams } from 'react-router';
 
-function PlaylistPage({activeUser, playlists, tracks, handlePlayTrack}) {
+function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack }) {
 
     const { index } = useParams();
-    const currentPlaylist = playlists[index-1];
+    const currentPlaylist = playlists[index - 1];
 
     if (!activeUser) {
         return <Redirect to="/" />
@@ -33,39 +33,42 @@ function PlaylistPage({activeUser, playlists, tracks, handlePlayTrack}) {
     }
 
     return (
-        <div>
-            <div className="p-playlist">
-                {currentPlaylist ?
-                    <h1>{currentPlaylist.title}</h1>
-                    : null}
-
-                {currentTracks.length > 0 ?
-                    <div className="playlist-tbl">
-                        <Table striped bordered hover size="sm" variant="dark">
-                            <tbody>
-                                {currentTracks.map(track =>
-                                    <tr>
-                                        <td>{i++}</td>
-                                        <td>{track.title}</td>
-                                        <td>{track.length}</td>
-                                        <td className="td-btn"><a className="tracks-btn" onClick={() => playTrack(track.id, !track.play)}>{!track.play ? <FaPlayCircle /> : <FaPauseCircle />}</a></td>
-                                        <td className="td-btn"><a className="tracks-btn" ><FaMinusCircle /></a></td>
-
-                                    </tr>)}
-                            </tbody>
-                        </Table>
-                    </div>
-                    : null}
-
-                {currentTracks ?
-                    <Player
-                        trackList={currentTracks}
-                        includeTags={true}
-                        includeSearch={false}
-                        showPlaylist={true}
-                        autoPlayNextTrack={true} />
-                    : null}
+        <div className="p-playlist">
+            {/* {currentPlaylist ? */}
+            <div className="icons-btn">
+                <FaPlayCircle className="icon-btn"/>
+                <FaPlusCircle className="icon-btn"/>
+                <FaMinusCircle className="icon-btn" />
+                <FaRegEdit className="icon-btn"/>
             </div>
+            <h1>{currentPlaylist.title}</h1>
+            {/* : null} */}
+            {currentTracks.length > 0 ?
+                <div className="playlist-tbl">
+                    <Table striped bordered hover size="sm" variant="dark">
+                        <tbody>
+                            {currentTracks.map(track =>
+                                <tr>
+                                    <td>{i++}</td>
+                                    <td>{track.title}</td>
+                                    <td>{track.length}</td>
+                                    <td className="td-btn"><a className="tracks-btn" onClick={() => playTrack(track.id, !track.play)}>{!track.play ? <FaPlayCircle /> : <FaPauseCircle />}</a></td>
+                                    <td className="td-btn"><a className="tracks-btn" ><FaMinusCircle /></a></td>
+
+                                </tr>)}
+                        </tbody>
+                    </Table>
+                </div>
+                : null}
+
+            {currentTracks ?
+                <Player
+                    trackList={currentTracks}
+                    includeTags={true}
+                    includeSearch={false}
+                    showPlaylist={true}
+                    autoPlayNextTrack={true} />
+                : null}
         </div>
     );
 }
