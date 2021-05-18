@@ -1,4 +1,4 @@
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
 import AlbumPage from './pages/AlbumPage/AlbumPage';
 import AllPlaylistsPage from './pages/AllPlaylistsPage/AllPlaylistsPage';
@@ -59,6 +59,9 @@ function App() {
 
     setPlaylists(playlists.concat(newPlaylist));
   }
+
+
+
   return (
     <>
     <MyMusicNavbar activeUser={activeUser} onLogout={() => setActiveUser(null)}/>

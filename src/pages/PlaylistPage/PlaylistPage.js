@@ -5,8 +5,9 @@ import './PlaylistPage.css';
 import Player from '@madzadev/audio-player'
 import '@madzadev/audio-player/dist/index.css'
 import { Redirect, useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 
-function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack }) {
+function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack}) {
 
     const { index } = useParams();
     const currentPlaylist = playlists[index - 1];
@@ -32,13 +33,18 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack }) {
         }
     }
 
+    function addToPlaylist() {
+        // debugger;
+        return <Redirect to="/" />
+    }
+
     return (
         <div className="p-playlist">
             {/* {currentPlaylist ? */}
             <div className="icons-btn">
                 <FaPlayCircle className="icon-btn"/>
-                <FaPlusCircle className="icon-btn"/>
-                <FaMinusCircle className="icon-btn" />
+                <FaPlusCircle className="icon-btn" onClick={addToPlaylist}/>
+                <FaMinusCircle className="icon-btn"/>
                 <FaRegEdit className="icon-btn"/>
             </div>
             <h1>{currentPlaylist.title}</h1>
@@ -61,7 +67,7 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack }) {
                 </div>
                 : null}
 
-            {currentTracks ?
+            {currentTracks.length > 0 ?
                 <Player
                     trackList={currentTracks}
                     includeTags={true}

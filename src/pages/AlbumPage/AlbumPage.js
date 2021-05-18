@@ -13,7 +13,7 @@ function AlbumPage({ activeUser, albums, tracks, artists, handlePlayTrack }) {
     const { index } = useParams();
     const currentAlbum = albums[index];
     const currentArtist = artists.find(artist => artist.id === currentAlbum.artistId);
-
+    
     if (!activeUser) {
         return <Redirect to="/" />
     }
@@ -78,8 +78,8 @@ function AlbumPage({ activeUser, albums, tracks, artists, handlePlayTrack }) {
 
                 {/* <ReactAudioPlayer src={currentTrack} autoPlay controls/> */}
 
-                 {currentTrack ? 
-                    <Player trackList={currentTrack}
+                 {albumTracks.length > 0 ? 
+                    <Player trackList={albumTracks}
                     includeTags={true}
                     includeSearch={false}
                     showPlaylist={true}
