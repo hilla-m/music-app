@@ -19,20 +19,6 @@
     text-align: center;
 }
 
-.p-playlist ._oGACf{
-    width:50%;
-    
-}
-
-.p-playlist ._8a8Wj {
-    display: none;
-}
-
-.p-playlist ._1EWMa{
-    font-family: 'Nunito', sans-serif !important;
-    margin-top: 100px;
-}
-
 .p-playlist .icons-btn{
     color: white;
     float: right;
@@ -46,4 +32,31 @@ margin: 8px;
 height: 2.5em !important;
 width: 2.5em !important;
 cursor: pointer;
+}
+
+.p-playlist ._oGACf{
+    width:40%;
+}
+
+.p-playlist ._8a8Wj {
+    display: none;
+}
+
+.p-playlist ._1EWMa{
+    margin-top: 100px;
+
+}
+
+.p-playlist ._wKo5X , ._2_1sf , ._2cSIF, ._wKo5X, ._3q4Ah, ._tAQkw{
+    margin: 0;
+}
+
+.p-playlist ._19ycA , ._3Juzi, ._3a3Vy , ._1mI0y {
+    width: 20px;
+    height: 20px;
+}
+
+.p-playlist ._tAQkw , ._3q4Ah{
+    font-size: 18px;
+    font-family: 'Nunito', sans-serif ;
 }

@@ -42,10 +42,8 @@
     text-align: center;
 }
 
-
 .p-album ._oGACf{
-    width:50%;
-    
+    width:40%;
 }
 
 .p-album ._8a8Wj {
@@ -53,6 +51,20 @@
 }
 
 .p-album ._1EWMa{
-    font-family: 'Nunito', sans-serif !important;
     margin-top: 100px;
+
+}
+
+.p-album ._wKo5X , ._2_1sf , ._2cSIF, ._3q4Ah, ._tAQkw{
+    margin: 20px;
+}
+
+.p-album ._19ycA , ._3Juzi, ._3a3Vy , ._1mI0y {
+    width: 20px;
+    height: 20px;
+}
+
+.p-album ._tAQkw , ._3q4Ah{
+    font-size: 18px;
+    font-family: 'Nunito', sans-serif ;
 }

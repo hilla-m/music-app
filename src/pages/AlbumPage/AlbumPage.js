@@ -26,9 +26,7 @@ function AlbumPage({ activeUser, albums, tracks, artists, handlePlayTrack }) {
     let currentTrack ; //= tracks[0]
 
     function playTrack(id, value) {
-
         handlePlayTrack(id, value);
-
         //play / pause track
         currentTrack = tracks.find(track => track.id === id);
         let audioObj = new Audio(currentTrack.file);
