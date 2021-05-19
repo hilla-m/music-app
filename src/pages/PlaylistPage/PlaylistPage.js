@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { FaMinusCircle, FaPauseCircle, FaPlayCircle, FaPlusCircle, FaRegEdit } from 'react-icons/fa';
 import './PlaylistPage.css';
@@ -6,11 +6,13 @@ import Player from '@madzadev/audio-player'
 import '@madzadev/audio-player/dist/index.css'
 import { Redirect, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import NamePlaylistModal from '../../components/NamePlaylistModal/NamePlaylistModal';
 
 function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack}) {
 
     const { index } = useParams();
     const currentPlaylist = playlists[index - 1];
+    const[showNamePlaylistModal, setShowNamePlaylistModal] = useState(false);
 
     if (!activeUser) {
         return <Redirect to="/" />
@@ -45,7 +47,7 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack}) {
                 <FaPlayCircle className="icon-btn"/>
                 <FaPlusCircle className="icon-btn" onClick={addToPlaylist}/>
                 <FaMinusCircle className="icon-btn"/>
-                <FaRegEdit className="icon-btn"/>
+                <FaRegEdit className="icon-btn" onClick={() => setShowNamePlaylistModal(true)}/>
             </div>
             <h1>{currentPlaylist.title}</h1>
             {/* : null} */}
@@ -75,6 +77,7 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack}) {
                     showPlaylist={true}
                     autoPlayNextTrack={true} />
                 : null}
+                 <NamePlaylistModal show={showNamePlaylistModal} onClose={() => setShowNamePlaylistModal(false)}/>
         </div>
     );
 }

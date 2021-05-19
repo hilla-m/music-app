@@ -1,0 +1,35 @@
+.m-name-playlist .btn{
+    /* background-color: black; */
+    background-color: rgb(176, 91, 255);
+
+    color: white;
+    border-radius: 50px;
+    width: 40%;
+    margin: 10px auto;
+    font-size: 18px;
+    border:none;
+}
+
+.m-name-playlist .btn:hover{
+    background-color: rgb(176, 91, 255);
+    /* background-color: black; */
+
+
+}
+
+.m-name-playlist .close{
+    /* background-color: black; */
+    background-color: black;
+
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+    border:none;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+}
+
+.m-name-playlist .sr-only{
+    display: none;
+}

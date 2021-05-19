@@ -6,7 +6,6 @@ function NewPlaylistModal({ show, onClose, onCreate }) {
     const [playlistName , setPlaylistName] = useState("");
 
     function createPlaylist () {
-        debugger;
         setPlaylistName("");
         onCreate(playlistName);
         onClose();
