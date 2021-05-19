@@ -12,10 +12,7 @@ function HomePage({ activeUser, albums, artists }) {
         return <Redirect to="/" />
     }
 
-    // const artistIds = artists.filter(artist => artist.name.toLowerCase().includes(filterText.toLowerCase()));
-
-
-    // write here code that converts the artists array into artists object
+   // write here code that converts the artists array into artists object
     const artistsMap =[];  //.... artists;
     
     // for (let i=0; i<artists.length; i++){
@@ -24,7 +21,12 @@ function HomePage({ activeUser, albums, artists }) {
     //     artistsMap.push(artist);
     // }
     
-    const filteredAlbums = albums.filter(album => album.title.toLowerCase().includes(filterText.toLowerCase()));  // || album.artistId  
+    // debugger;
+
+    const filterArtists = artists.filter(artist => artist.name.toLowerCase().includes(filterText.toLowerCase()));
+    const artistsId = filterArtists.map(artist => artist.id);
+
+    const filteredAlbums = albums.filter(album => album.title.toLowerCase().includes(filterText.toLowerCase()) || artistsId.includes(album.artistId) );  
 
 
     //albums by genre
@@ -40,7 +42,7 @@ function HomePage({ activeUser, albums, artists }) {
             <div className="home-search">
                 <h1>Find your music</h1>
                 <Form>
-                    <Form.Control type="text" className="filter" placeholder="Search album" value={filterText} onChange={e => setFilterText(e.target.value)} />
+                    <Form.Control type="text" className="filter" placeholder="Search album \ artist" value={filterText} onChange={e => setFilterText(e.target.value)} />
                 </Form>
             </div>
             <div className="albums-cards">
