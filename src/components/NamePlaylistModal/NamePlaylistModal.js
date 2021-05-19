@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import { Row, Col, Form, Modal, Button } from 'react-bootstrap';
 import './NamePlaylistModal.css';
 
-function NamePlaylistModal({ show, onClose }) {
+function NamePlaylistModal({ playlist , show, onClose ,onEdit }) {
     const [playlistName , setPlaylistName] = useState("");
+
+     function editPlaylist () {
+        setPlaylistName("");
+        onEdit(playlist.id , playlistName);
+        onClose();
+    }
 
     return (
         <Modal className="m-name-playlist" show={show} onHide={onClose}>
@@ -23,7 +29,7 @@ function NamePlaylistModal({ show, onClose }) {
             </Form>
         </Modal.Body>
         <Modal.Footer>
-            <Button variant="secondary" >
+            <Button variant="secondary" onClick={editPlaylist}>
                 Save
       </Button>
 

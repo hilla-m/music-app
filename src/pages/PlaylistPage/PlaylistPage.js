@@ -8,7 +8,7 @@ import { Redirect, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import NamePlaylistModal from '../../components/NamePlaylistModal/NamePlaylistModal';
 
-function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack}) {
+function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPlaylist}) {
 
     const { index } = useParams();
     const currentPlaylist = playlists[index - 1];
@@ -77,7 +77,7 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack}) {
                     showPlaylist={true}
                     autoPlayNextTrack={true} />
                 : null}
-                 <NamePlaylistModal show={showNamePlaylistModal} onClose={() => setShowNamePlaylistModal(false)}/>
+                 <NamePlaylistModal show={showNamePlaylistModal} onClose={() => setShowNamePlaylistModal(false)} onEdit={onEditPlaylist} playlist={currentPlaylist}/>
         </div>
     );
 }

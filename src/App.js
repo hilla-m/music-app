@@ -60,7 +60,11 @@ function App() {
     setPlaylists(playlists.concat(newPlaylist));
   }
 
-
+function editPlaylist(id , name) {
+  const tempPlaylists = [...playlists];
+  tempPlaylists.map(playlist => { if (playlist.id === id) { playlist.title = name } });
+  setPlaylists(tempPlaylists);
+}
 
   return (
     <>
@@ -75,7 +79,7 @@ function App() {
           <Route exact path="/search"><SearchingPage activeUser={activeUser}/></Route>
           <Route exact path="/artist/:index"><ArtistPage activeUser={activeUser} albums={albums} artists={artists}/></Route>
           <Route exact path="/all-playlists"><AllPlaylistsPage activeUser={activeUser} playlists={playlists} onAddPlaylist={addPlaylist}/></Route>
-          <Route exact path="/playlist/:index"><PlaylistPage activeUser={activeUser}  playlists={playlists} tracks={tracks} handlePlayTrack={handlePlayTrack}/></Route>
+          <Route exact path="/playlist/:index"><PlaylistPage activeUser={activeUser}  playlists={playlists} tracks={tracks} handlePlayTrack={handlePlayTrack} onEditPlaylist={editPlaylist}/></Route>
           <Route exact path="/artists"><FavoriteArtistsPage activeUser={activeUser}/></Route>
           <Route exact path="/albums"><FavoriteAlbumsPage activeUser={activeUser}/></Route>
         </Switch>
