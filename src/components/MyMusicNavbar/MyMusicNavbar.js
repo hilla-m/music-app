@@ -2,19 +2,22 @@ import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import '../MyMusicNavbar/MyMusicNavbar.css'
 import logoImg from './logo.jpg';
+import { GiMusicSpell } from "react-icons/gi";
+
 
 function MyMusicNavbar({ activeUser , onLogout }) {
         return (
         <Navbar variant="dark" className="navbar navbar-bg" expand="lg">
-            <Navbar.Brand href="#home">
+            {/* <Navbar.Brand href="#home">
             <img src={logoImg} width="60" className="logo"/>
-            </Navbar.Brand>
+            </Navbar.Brand> */}
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="nav-display">
                 <Nav className="mr-auto">
-                    {activeUser ? < Nav.Link href="#all-playlists">Playlists</Nav.Link> : null}
-                    {activeUser ? <Nav.Link href="#albums">Albums</Nav.Link> : null}
-                    {activeUser ? <Nav.Link href="#artists">Artists</Nav.Link> : null}
+                < Nav.Link href="#home"><img src={logoImg} width="60" className="logo"/></Nav.Link>
+                    {activeUser ? < Nav.Link className="navbar-link" href="#all-playlists">Playlists</Nav.Link> : null}
+                    {activeUser ? <Nav.Link className="navbar-link" href="#albums">Albums</Nav.Link> : null}
+                    {activeUser ? <Nav.Link className="navbar-link" href="#artists">Artists</Nav.Link> : null}
                 </Nav>
                 <Nav className="ml-auto">
                     {!activeUser ? <Nav.Link href="#login">Login</Nav.Link> : null}
