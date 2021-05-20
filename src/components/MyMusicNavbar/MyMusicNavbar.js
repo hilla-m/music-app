@@ -1,12 +1,13 @@
 import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import '../MyMusicNavbar/MyMusicNavbar.css'
+import logoImg from './logo.jpg';
 
 function MyMusicNavbar({ activeUser , onLogout }) {
         return (
         <Navbar variant="dark" className="navbar navbar-bg" expand="lg">
             <Navbar.Brand href="#home">
-            <img src="logo.jpg" width="60" className="logo"/>
+            <img src={logoImg} width="60" className="logo"/>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="nav-display">

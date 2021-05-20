@@ -6,6 +6,7 @@ class TrackModel {
         this.albumId= plainTrack.albumId;
         this.play = plainTrack.play;
         this.file = plainTrack.file;
+        this.active = plainTrack.active;
         
         this.url = plainTrack.file;
         this.tags = [''];

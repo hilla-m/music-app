@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { FaMinusCircle, FaPauseCircle, FaPlayCircle, FaPlusCircle, FaRegEdit } from 'react-icons/fa';
 import './PlaylistPage.css';
@@ -7,36 +7,46 @@ import '@madzadev/audio-player/dist/index.css'
 import { Redirect, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import NamePlaylistModal from '../../components/NamePlaylistModal/NamePlaylistModal';
+import audio3 from './On The Run.mp3';
 
 function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPlaylist}) {
 
     const { index } = useParams();
     const currentPlaylist = playlists[index - 1];
     const[showNamePlaylistModal, setShowNamePlaylistModal] = useState(false);
+    const [trackPlay, setTrackPlay] = useState(null);
 
-    if (!activeUser) {
-        return <Redirect to="/" />
-    }
+    useEffect(() => {
+        if (trackPlay) {
+            const audioObj = new Audio(audio3);
+            audioObj.play();
+            
+            return () => {
+                audioObj.pause();
+            }
+        }
+    }, [trackPlay])
 
+  
     const currentTracks = tracks.filter(track => currentPlaylist.tracksId.includes(track.id));
 
     let i = 1;
     let currentTrack;
 
     function playTrack(id, value) {
-        handlePlayTrack(id, value);
-        //play / pause track
-        currentTrack = tracks.find(track => track.id === id);
-        let audioObj = new Audio(currentTrack.file);
-        if (currentTrack.play) {
-            audioObj.play();
+        if (value) {
+            setTrackPlay(tracks.find(track => track.id === id));
         } else {
-            audioObj.pause(); //not working
+            setTrackPlay(null);
         }
     }
 
     function addToPlaylist() {
         // debugger;
+        return <Redirect to="/" />
+    }
+
+    if (!activeUser) {
         return <Redirect to="/" />
     }
 
@@ -60,8 +70,11 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPl
                                     <td>{i++}</td>
                                     <td>{track.title}</td>
                                     <td>{track.length}</td>
-                                    <td className="td-btn"><a className="tracks-btn" onClick={() => playTrack(track.id, !track.play)}>{!track.play ? <FaPlayCircle /> : <FaPauseCircle />}</a></td>
+                                    {/* <td className="td-btn"><a className="tracks-btn" onClick={() => playTrack(track.id, !track.play)}>{!track.play ? <FaPlayCircle /> : <FaPauseCircle />}</a></td> */}
+                                    <td className="td-btn"><a className="tracks-btn" onClick={() => playTrack(track.id, !(trackPlay && trackPlay.id === track.id))}>
+                                                {trackPlay && trackPlay.id === track.id ? <FaPauseCircle /> : <FaPlayCircle />}</a></td>
                                     <td className="td-btn"><a className="tracks-btn" ><FaMinusCircle /></a></td>
+                                    
 
                                 </tr>)}
                         </tbody>
@@ -74,7 +87,7 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPl
                     trackList={currentTracks}
                     includeTags={true}
                     includeSearch={false}
-                    showPlaylist={true}
+                    showPlaylist={false}
                     autoPlayNextTrack={true} />
                 : null}
                  <NamePlaylistModal show={showNamePlaylistModal} onClose={() => setShowNamePlaylistModal(false)} onEdit={onEditPlaylist} playlist={currentPlaylist}/>

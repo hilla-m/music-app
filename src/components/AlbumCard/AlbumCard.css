@@ -1,6 +1,6 @@
 .album-card {
-    /* width: 300px !important; */
-    margin: 20px 30px 60px 30px;
+  height: 350px;  
+  margin: 20px 30px 60px 30px;
 }
 
 .album-card  .card-img-top{

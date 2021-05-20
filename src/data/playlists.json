@@ -3,20 +3,23 @@
     "id": 1,
     "title": "playlist 1",
     "userId" : 1 ,
-    "tracksId" : [1,2,3]
+    "tracksId" : [1,2,3],
+    "active": true
 },
 
 {
     "id": 2,
     "title": "playlist 2",
     "userId" : 1 ,
-    "tracksId" : [5,8]
+    "tracksId" : [5,8],
+    "active": true
 }, 
 {
     "id": 3,
-    "title": "playlist 1",
-    "userId" : 2 ,
-    "tracksId" : [5,6,10]
+    "title": "playlist 3",
+    "userId" : 1 ,
+    "tracksId" : [5,6,10],
+    "active": true
 }
 
 ]

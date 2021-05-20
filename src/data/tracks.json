@@ -5,7 +5,8 @@
     "length":"1:30",
     "albumId": 1,
     "play": false,
-    "file": "Speak To MeBreathe.mp3"
+    "file": "Speak To MeBreathe.mp3",
+    "active": true
 },
 {
     "id" : 2,
@@ -13,7 +14,8 @@
     "length":"2:43",
     "albumId": 1,
     "play": false,
-    "file": "Speak To MeBreathe.mp3"
+    "file": "Speak To MeBreathe.mp3",
+    "active": true
 },
 {
     "id" : 3,
@@ -21,7 +23,8 @@
     "length":"3:30",
     "albumId": 1,
     "play": false,
-    "file": "On The Run.mp3"
+    "file": "On The Run.mp3",
+    "active": true
 },
 {
     "id" : 4,
@@ -29,7 +32,8 @@
     "length":"7:05",
     "albumId": 1,
     "play": false,
-    "file": ""
+    "file": "",
+    "active": true
 },
 {
     "id" : 5,
@@ -37,7 +41,8 @@
     "length":"4:15",
     "albumId": 1,
     "play": false,
-    "file": ""
+    "file": "",
+    "active": true
 },
 {
     "id" : 6,
@@ -45,7 +50,8 @@
     "length":"3:18",
     "albumId": 2,
     "play": false,
-    "file": ""
+    "file": "",
+    "active": true
 },
 {
     "id" : 7,
@@ -53,7 +59,8 @@
     "length":"2:26",
     "albumId": 2,
     "play": false,
-    "file": ""
+    "file": "",
+    "active": true
 },
 {
     "id" : 8,
@@ -61,7 +68,8 @@
     "length":"3:12",
     "albumId": 2,
     "play": false,
-    "file": ""
+    "file": "",
+    "active": true
 },
 {
     "id" : 9,
@@ -69,7 +77,8 @@
     "length":"1:50",
     "albumId": 2,
     "play": false,
-    "file": ""
+    "file": "",
+    "active": true
 },
 {
     "id" : 10,
@@ -77,6 +86,7 @@
     "length":"3:58",
     "albumId": 2,
     "play": false,
-    "file": ""
+    "file": "",
+    "active": true
 }
 ]

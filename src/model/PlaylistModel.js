@@ -4,6 +4,7 @@ class PlaylistModel {
         this.title= plainPlaylist.title;
         this.userId= plainPlaylist.userId;
         this.tracksId= plainPlaylist.tracksId;
+        this.active=plainPlaylist.active;
     }
 
 }
