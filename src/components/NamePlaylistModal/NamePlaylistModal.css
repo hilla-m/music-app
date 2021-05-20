@@ -1,7 +1,9 @@
-.m-name-playlist .btn{
-    /* background-color: black; */
-    background-color: rgb(176, 91, 255);
+.m-name-playlist .modal-dialog{
+    margin-top: 350px;
+}
 
+.m-name-playlist .btn{
+    background-color: rgb(176, 91, 255);
     color: white;
     border-radius: 50px;
     width: 40%;
@@ -12,15 +14,10 @@
 
 .m-name-playlist .btn:hover{
     background-color: rgb(176, 91, 255);
-    /* background-color: black; */
-
-
 }
 
 .m-name-playlist .close{
-    /* background-color: black; */
     background-color: black;
-
     border-radius: 50px;
     height: 30px;
     width: 30px;

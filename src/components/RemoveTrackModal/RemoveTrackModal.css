@@ -1,3 +1,7 @@
+.m-remove-track .modal-dialog{
+    margin-top: 350px;
+}
+
 .m-remove-track .btn{
     background-color: rgb(176, 91, 255);
 
