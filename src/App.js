@@ -67,7 +67,6 @@ function editPlaylist(id , name) {
 }
 
 function removeTrack(playlistId , trackId) {
-//  debugger;
   const tempPlaylists = [...playlists];
   tempPlaylists.map(playlist => { if (playlist.id === playlistId) { playlist.tracksId.splice(trackId-1, 1) } });
   setPlaylists(tempPlaylists);
@@ -77,8 +76,15 @@ function removePlaylist(playlistId) {
   const tempPlaylists = [...playlists];
   tempPlaylists.map(playlist => { if (playlist.id === playlistId) { playlist.active = false } });
   setPlaylists(tempPlaylists);
-  return <Redirect to="/all-playlists" /> // not working
 }
+
+function addTrack(playlistId , track) {
+  debugger;
+  const tempPlaylists = [...playlists];
+  tempPlaylists.map(playlist => { if (playlist.id === playlistId) { playlist.tracksId.push(track.id) }});
+  setPlaylists(tempPlaylists);
+}
+
   return (
     <>
     <MyMusicNavbar activeUser={activeUser} onLogout={() => setActiveUser(null)}/>
@@ -88,7 +94,15 @@ function removePlaylist(playlistId) {
           <Route exact path="/home"><HomePage activeUser={activeUser} albums={albums} artists={artists}/></Route>
           <Route exact path="/login"><LoginPage users={users} onLogin={user => setActiveUser(user)} activeUser={activeUser}/></Route>
           <Route exact path="/signup"><SignupPage addUser={addUser} activeUser={activeUser}/></Route>
-          <Route exact path="/album/:index"><AlbumPage activeUser={activeUser} albums={albums} tracks={tracks} artists={artists} handlePlayTrack={handlePlayTrack}/></Route>
+          <Route exact path="/album/:index"><AlbumPage 
+          activeUser={activeUser}
+          albums={albums}
+          tracks={tracks}
+          artists={artists}
+          playlists={playlists}
+          handlePlayTrack={handlePlayTrack}
+          addTrack={addTrack}
+          /></Route>
           <Route exact path="/search"><SearchingPage activeUser={activeUser}/></Route>
           <Route exact path="/artist/:index"><ArtistPage activeUser={activeUser} albums={albums} artists={artists}/></Route>
           <Route exact path="/all-playlists"><AllPlaylistsPage activeUser={activeUser} playlists={playlists} onAddPlaylist={addPlaylist}/></Route>

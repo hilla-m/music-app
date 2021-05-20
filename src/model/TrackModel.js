@@ -8,7 +8,7 @@ class TrackModel {
         this.file = plainTrack.file;
         this.active = plainTrack.active;
         
-        this.url = plainTrack.file;
+        this.url = "process.env.PUBLIC_URL+plainTrack.file";
         this.tags = [''];
     }
 

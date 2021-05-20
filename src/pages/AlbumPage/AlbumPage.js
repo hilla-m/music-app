@@ -10,24 +10,28 @@ import '@madzadev/audio-player/dist/index.css';
 import audio1 from './Speak To MeBreathe.mp3';
 import audio2 from './Speak To MeBreathe.mp3';
 import audio3 from './On The Run.mp3';
+import AddTrackToPlaylistModal from '../../components/AddTrackToPlaylistModal/AddTrackToPlaylistModal';
 
 
-function AlbumPage({ activeUser, albums, tracks, artists, handlePlayTrack }) {
+function AlbumPage({ activeUser, albums, tracks, artists, playlists, handlePlayTrack , addTrack}) {
     const { index } = useParams();
     const [trackPlay, setTrackPlay] = useState(null);
+    const [showAddTrackModal, setShowAddTrackModal] = useState(false);
+    const [trackAdd, setTrackAdd] = useState(null);
+
     const currentAlbum = albums[index];
     const currentArtist = artists.find(artist => artist.id === currentAlbum.artistId);
-    
+
     const albumTracks = tracks.filter(track => track.albumId === currentAlbum.id);
 
     // const[trackList,setTrackList] = useState(albumTracks);
 
-        useEffect(() => {
+    useEffect(() => {
         if (trackPlay) {
-            // const audioUrl = trackPlay.id;  //number not working
-            const audioObj = new Audio(audio3);
+            const audioUrl = process.env.PUBLIC_URL + trackPlay.file;
+            const audioObj = new Audio(audioUrl);
             audioObj.play();
-            
+
             // setTrackList(albumTracks.slice(trackPlay.id-1));
 
             return () => {
@@ -61,6 +65,11 @@ function AlbumPage({ activeUser, albums, tracks, artists, handlePlayTrack }) {
         // }
     }
 
+    function handleAddTrack(track) {
+        setShowAddTrackModal(true);
+        setTrackAdd(track);
+    }
+
     if (!activeUser) {
         return <Redirect to="/" />
     }
@@ -88,7 +97,7 @@ function AlbumPage({ activeUser, albums, tracks, artists, handlePlayTrack }) {
                         <Table striped bordered hover size="sm" variant="dark">
                             <tbody>
                                 {albumTracks.map(track =>
-                                    <tr>
+                                    <tr key={track.id}>
                                         <td>{i++}</td>
                                         <td>{track.title}</td>
                                         <td>{track.length}</td>
@@ -96,7 +105,7 @@ function AlbumPage({ activeUser, albums, tracks, artists, handlePlayTrack }) {
                                             <a className="tracks-btn" onClick={() => playTrack(track.id, !(trackPlay && trackPlay.id === track.id))}>
                                                 {trackPlay && trackPlay.id === track.id ? <FaPauseCircle /> : <FaPlayCircle />}
                                             </a></td>
-                                        <td className="td-btn"><a className="tracks-btn" ><FaPlusCircle /></a></td>
+                                        <td className="td-btn"><FaPlusCircle  className="tracks-btn" onClick={() => handleAddTrack(track)}/></td>
 
                                     </tr>)}
                             </tbody>
@@ -109,12 +118,14 @@ function AlbumPage({ activeUser, albums, tracks, artists, handlePlayTrack }) {
             {/* <ReactAudioPlayer src={currentTrack} autoPlay controls/> */}
 
             {/* {albumTracks.length > 0 ? */}
-                <Player trackList={albumTracks}
-                    includeTags={true}
-                    includeSearch={false}
-                    showPlaylist={false}
-                    autoPlayNextTrack={true} />
-                {/* : null} */}
+            <Player trackList={albumTracks}
+                includeTags={true}
+                includeSearch={false}
+                showPlaylist={false}
+                autoPlayNextTrack={true} />
+            {/* : null} */}
+            <AddTrackToPlaylistModal show={showAddTrackModal} onClose={() => setShowAddTrackModal(false)} playlists={playlists} trackAdd={trackAdd} onAddTrack={addTrack}/>
+
         </div>
     );
 }

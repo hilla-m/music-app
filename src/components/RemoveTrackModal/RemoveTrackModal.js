@@ -12,11 +12,10 @@ function RemoveTrackModal({ playlist, track, show, onClose, onRemove }) {
     return (
         <Modal className="m-remove-track" show={show} onHide={onClose}>
             <Modal.Header closeButton>
-                <Modal.Title>Remove this track from playlist ?</Modal.Title>
-                {/* {playlist.title ? {playlistName} : null} */}
+                <Modal.Title>Remove this track from {playlist? playlist.title : ""} ?</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                  {/* {track.title}  */}
+                  {track? track.title :""} 
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={removeTrackFromPlaylist}>Remove</Button>

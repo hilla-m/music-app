@@ -3,12 +3,11 @@ import { Modal, Form, Button } from 'react-bootstrap';
 import './AddTrackToPlaylistModal.css';
 
 function AddTrackToPlaylistModal({ playlists, trackAdd, show, onClose, onAddTrack }) {
-    const [currPlaylist, setCurrPlaylist] = useState(null);
+    const [currPlaylist, setCurrPlaylist] = useState(playlists[0]);
 
     function AddTrackToPlaylist() {
-        if (currPlaylist) {
+        debugger;
             onAddTrack(currPlaylist.id, trackAdd);
-        }
         onClose();
     }
 

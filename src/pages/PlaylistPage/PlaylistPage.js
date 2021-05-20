@@ -10,6 +10,7 @@ import NamePlaylistModal from '../../components/NamePlaylistModal/NamePlaylistMo
 import audio3 from './On The Run.mp3';
 import RemoveTrackModal from '../../components/RemoveTrackModal/RemoveTrackModal';
 import RemovePlaylistModal from '../../components/RemovePlaylistModal/RemovePlaylistModal';
+import AddTrackToPlaylistModal from '../../components/AddTrackToPlaylistModal/AddTrackToPlaylistModal';
 
 function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPlaylist, onRemoveTrack, onRemovePlaylist }) {
 
@@ -19,11 +20,13 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPl
     const [trackPlay, setTrackPlay] = useState(null);
     const [showRemoveTrackModal, setShowRemoveTrackModal] = useState(false);
     const [trackRemove, setTrackRemove] = useState(null);
-    const [showRemovePlaylistModal ,setShowRemovePlaylistModal]= useState(false);
+    const [showRemovePlaylistModal, setShowRemovePlaylistModal] = useState(false);
+    const [redirectToHome, setRedirectToHome] = useState(false);
 
     useEffect(() => {
         if (trackPlay) {
-            const audioObj = new Audio(audio3);
+            const audioUrl = process.env.PUBLIC_URL + trackPlay.file;
+            const audioObj = new Audio(audioUrl);
             audioObj.play();
 
             return () => {
@@ -46,19 +49,17 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPl
         }
     }
 
-    function addToPlaylist() {
-        // debugger;
-        return <Redirect to="/" />
-    }
-
-
     function handleOnClick(track) {
         setShowRemoveTrackModal(true);
         setTrackRemove(track);
     }
 
-    if (!activeUser) {
+    if (!activeUser){
         return <Redirect to="/" />
+    }
+
+    if  (redirectToHome){
+        return <Redirect to="/home" />
     }
 
     return (
@@ -66,8 +67,8 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPl
             {/* {currentPlaylist ? */}
             <div className="icons-btn">
                 <FaPlayCircle className="icon-btn" />
-                <FaPlusCircle className="icon-btn" onClick={addToPlaylist} />
-                <FaMinusCircle className="icon-btn" onClick={() => setShowRemovePlaylistModal(true)}/>
+                <FaPlusCircle className="icon-btn" onClick={() => setRedirectToHome(true)} />
+                <FaMinusCircle className="icon-btn" onClick={() => setShowRemovePlaylistModal(true)} />
                 <FaRegEdit className="icon-btn" onClick={() => setShowNamePlaylistModal(true)} />
             </div>
             <h1>{currentPlaylist.title}</h1>
@@ -76,7 +77,7 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPl
                 <div className="playlist-tbl">
                     <Table striped bordered hover size="sm" variant="dark">
                         <tbody>
-                            {currentTracks.map(track => 
+                            {currentTracks.map(track =>
                                 <tr>
                                     <td>{i++}</td>
                                     <td>{track.title}</td>
@@ -102,7 +103,6 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPl
             <NamePlaylistModal show={showNamePlaylistModal} onClose={() => setShowNamePlaylistModal(false)} onEdit={onEditPlaylist} playlist={currentPlaylist} />
             <RemoveTrackModal show={showRemoveTrackModal} onClose={() => setShowRemoveTrackModal(false)} onRemove={onRemoveTrack} playlist={currentPlaylist} track={trackRemove} />
             <RemovePlaylistModal show={showRemovePlaylistModal} onClose={() => setShowRemovePlaylistModal(false)} onRemove={onRemovePlaylist} playlist={currentPlaylist} />
-
         </div>
     );
 }
