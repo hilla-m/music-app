@@ -66,13 +66,19 @@ function editPlaylist(id , name) {
   setPlaylists(tempPlaylists);
 }
 
-function removeTrack(playkistId , trackId) {
+function removeTrack(playlistId , trackId) {
 //  debugger;
   const tempPlaylists = [...playlists];
-  tempPlaylists.map(playlist => { if (playlist.id === playkistId) { playlist.tracksId.splice(trackId-1, 1) } });
+  tempPlaylists.map(playlist => { if (playlist.id === playlistId) { playlist.tracksId.splice(trackId-1, 1) } });
   setPlaylists(tempPlaylists);
 }
 
+function removePlaylist(playlistId) {
+  const tempPlaylists = [...playlists];
+  tempPlaylists.map(playlist => { if (playlist.id === playlistId) { playlist.active = false } });
+  setPlaylists(tempPlaylists);
+  return <Redirect to="/all-playlists" /> // not working
+}
   return (
     <>
     <MyMusicNavbar activeUser={activeUser} onLogout={() => setActiveUser(null)}/>
@@ -86,7 +92,15 @@ function removeTrack(playkistId , trackId) {
           <Route exact path="/search"><SearchingPage activeUser={activeUser}/></Route>
           <Route exact path="/artist/:index"><ArtistPage activeUser={activeUser} albums={albums} artists={artists}/></Route>
           <Route exact path="/all-playlists"><AllPlaylistsPage activeUser={activeUser} playlists={playlists} onAddPlaylist={addPlaylist}/></Route>
-          <Route exact path="/playlist/:index"><PlaylistPage activeUser={activeUser}  playlists={playlists} tracks={tracks} handlePlayTrack={handlePlayTrack} onEditPlaylist={editPlaylist} onRemoveTrack={removeTrack}/></Route>
+          <Route exact path="/playlist/:index"><PlaylistPage 
+          activeUser={activeUser}
+          playlists={playlists}
+          tracks={tracks}
+          handlePlayTrack={handlePlayTrack}
+          onEditPlaylist={editPlaylist}
+          onRemoveTrack={removeTrack}
+          onRemovePlaylist ={removePlaylist}
+          /></Route>
           <Route exact path="/artists"><FavoriteArtistsPage activeUser={activeUser}/></Route>
           <Route exact path="/albums"><FavoriteAlbumsPage activeUser={activeUser}/></Route>
         </Switch>

@@ -30,10 +30,13 @@ function AllPlaylistsPage({ activeUser, playlists, onAddPlaylist }) {
                     <Table striped bordered hover size="sm" variant="dark">
                         <tbody>
                             {userPlaylists.map(playlist =>
+                            playlist.active ? 
                                 <tr>
                                     <td>{i++}</td>
                                     <td><Link to={"/playlist/" + playlist.id} className="playlist-link">{playlist.title}</Link></td>
-                                </tr>)}
+                                </tr>
+                                : null                          
+                                )}
                         </tbody>
                     </Table>
                 </div>

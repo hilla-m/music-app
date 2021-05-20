@@ -16,7 +16,7 @@ function RemoveTrackModal({ playlist, track, show, onClose, onRemove }) {
                 {/* {playlist.title ? {playlistName} : null} */}
             </Modal.Header>
             <Modal.Body>
-                  {/* {trackName}  */}
+                  {/* {track.title}  */}
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={removeTrackFromPlaylist}>Remove</Button>

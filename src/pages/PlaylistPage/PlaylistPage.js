@@ -9,8 +9,9 @@ import { Link } from 'react-router-dom';
 import NamePlaylistModal from '../../components/NamePlaylistModal/NamePlaylistModal';
 import audio3 from './On The Run.mp3';
 import RemoveTrackModal from '../../components/RemoveTrackModal/RemoveTrackModal';
+import RemovePlaylistModal from '../../components/RemovePlaylistModal/RemovePlaylistModal';
 
-function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPlaylist, onRemoveTrack }) {
+function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPlaylist, onRemoveTrack, onRemovePlaylist }) {
 
     const { index } = useParams();
     const currentPlaylist = playlists[index - 1];
@@ -18,6 +19,7 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPl
     const [trackPlay, setTrackPlay] = useState(null);
     const [showRemoveTrackModal, setShowRemoveTrackModal] = useState(false);
     const [trackRemove, setTrackRemove] = useState(null);
+    const [showRemovePlaylistModal ,setShowRemovePlaylistModal]= useState(false);
 
     useEffect(() => {
         if (trackPlay) {
@@ -65,7 +67,7 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPl
             <div className="icons-btn">
                 <FaPlayCircle className="icon-btn" />
                 <FaPlusCircle className="icon-btn" onClick={addToPlaylist} />
-                <FaMinusCircle className="icon-btn" />
+                <FaMinusCircle className="icon-btn" onClick={() => setShowRemovePlaylistModal(true)}/>
                 <FaRegEdit className="icon-btn" onClick={() => setShowNamePlaylistModal(true)} />
             </div>
             <h1>{currentPlaylist.title}</h1>
@@ -99,6 +101,8 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPl
                 : null}
             <NamePlaylistModal show={showNamePlaylistModal} onClose={() => setShowNamePlaylistModal(false)} onEdit={onEditPlaylist} playlist={currentPlaylist} />
             <RemoveTrackModal show={showRemoveTrackModal} onClose={() => setShowRemoveTrackModal(false)} onRemove={onRemoveTrack} playlist={currentPlaylist} track={trackRemove} />
+            <RemovePlaylistModal show={showRemovePlaylistModal} onClose={() => setShowRemovePlaylistModal(false)} onRemove={onRemovePlaylist} playlist={currentPlaylist} />
+
         </div>
     );
 }
