@@ -38,7 +38,7 @@ function AllPlaylistsPage({ activeUser, playlists, onAddPlaylist }) {
                     </Table>
                 </div>
                 : null}
-                <NewPlaylistModal show={showNewPlaylistModal} onClose={() => setShowNewPlaylistModal(false)} onCreate={onAddPlaylist}/>
+                <NewPlaylistModal show={showNewPlaylistModal} onClose={() => setShowNewPlaylistModal(false)} onCreate={onAddPlaylist} />
         </div>
     );
 }
