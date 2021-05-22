@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/music-app/static/css/main.34a0d598.chunk.css",
-    "main.js": "/music-app/static/js/main.b48cbc43.chunk.js",
-    "main.js.map": "/music-app/static/js/main.b48cbc43.chunk.js.map",
-    "runtime-main.js": "/music-app/static/js/runtime-main.248ba1f3.js",
-    "runtime-main.js.map": "/music-app/static/js/runtime-main.248ba1f3.js.map",
-    "static/css/2.b6156561.chunk.css": "/music-app/static/css/2.b6156561.chunk.css",
-    "static/js/2.9d34da0a.chunk.js": "/music-app/static/js/2.9d34da0a.chunk.js",
-    "static/js/2.9d34da0a.chunk.js.map": "/music-app/static/js/2.9d34da0a.chunk.js.map",
-    "static/js/3.930067e5.chunk.js": "/music-app/static/js/3.930067e5.chunk.js",
-    "static/js/3.930067e5.chunk.js.map": "/music-app/static/js/3.930067e5.chunk.js.map",
+    "main.css": "/music-app/static/css/main.619c2277.chunk.css",
+    "main.js": "/music-app/static/js/main.b4857db5.chunk.js",
+    "main.js.map": "/music-app/static/js/main.b4857db5.chunk.js.map",
+    "runtime-main.js": "/music-app/static/js/runtime-main.fd0e90cc.js",
+    "runtime-main.js.map": "/music-app/static/js/runtime-main.fd0e90cc.js.map",
+    "static/css/2.8ceee51e.chunk.css": "/music-app/static/css/2.8ceee51e.chunk.css",
+    "static/js/2.8b8eecd0.chunk.js": "/music-app/static/js/2.8b8eecd0.chunk.js",
+    "static/js/2.8b8eecd0.chunk.js.map": "/music-app/static/js/2.8b8eecd0.chunk.js.map",
+    "static/js/3.53098df5.chunk.js": "/music-app/static/js/3.53098df5.chunk.js",
+    "static/js/3.53098df5.chunk.js.map": "/music-app/static/js/3.53098df5.chunk.js.map",
     "index.html": "/music-app/index.html",
-    "static/css/2.b6156561.chunk.css.map": "/music-app/static/css/2.b6156561.chunk.css.map",
-    "static/css/main.34a0d598.chunk.css.map": "/music-app/static/css/main.34a0d598.chunk.css.map",
-    "static/js/2.9d34da0a.chunk.js.LICENSE.txt": "/music-app/static/js/2.9d34da0a.chunk.js.LICENSE.txt",
+    "static/css/2.8ceee51e.chunk.css.map": "/music-app/static/css/2.8ceee51e.chunk.css.map",
+    "static/css/main.619c2277.chunk.css.map": "/music-app/static/css/main.619c2277.chunk.css.map",
+    "static/js/2.8b8eecd0.chunk.js.LICENSE.txt": "/music-app/static/js/2.8b8eecd0.chunk.js.LICENSE.txt",
     "static/media/On The Run.97104736.mp3": "/music-app/static/media/On The Run.97104736.mp3",
     "static/media/Speak To MeBreathe.a4c93e5e.mp3": "/music-app/static/media/Speak To MeBreathe.a4c93e5e.mp3",
     "static/media/logo.27e693a3.jpg": "/music-app/static/media/logo.27e693a3.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.248ba1f3.js",
-    "static/css/2.b6156561.chunk.css",
-    "static/js/2.9d34da0a.chunk.js",
-    "static/css/main.34a0d598.chunk.css",
-    "static/js/main.b48cbc43.chunk.js"
+    "static/js/runtime-main.fd0e90cc.js",
+    "static/css/2.8ceee51e.chunk.css",
+    "static/js/2.8b8eecd0.chunk.js",
+    "static/css/main.619c2277.chunk.css",
+    "static/js/main.b4857db5.chunk.js"
   ]
 }
