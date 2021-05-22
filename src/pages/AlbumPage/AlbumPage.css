@@ -68,3 +68,18 @@
     font-size: 18px;
     font-family: 'Nunito', sans-serif ;
 }
+
+
+.p-album .rhap_container {
+    margin-top: 150px !important;
+    padding: 10px 20px 10px 20px !important;
+    margin: 0 auto;
+    width: 800px !important;
+    border-radius: 20px;
+    font-family: 'Nunito', sans-serif !important;
+    background-color: #212529 !important;
+}
+
+.p-album .rhap_time {
+    color: white !important;
+}

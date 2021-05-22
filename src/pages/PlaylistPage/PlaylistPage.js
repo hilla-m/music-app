@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { FaMinusCircle, FaPauseCircle, FaPlayCircle, FaPlusCircle, FaRegEdit } from 'react-icons/fa';
 import './PlaylistPage.css';
-import Player from '@madzadev/audio-player'
-import '@madzadev/audio-player/dist/index.css'
 import { Redirect, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import NamePlaylistModal from '../../components/NamePlaylistModal/NamePlaylistModal';
@@ -11,6 +9,10 @@ import audio3 from './On The Run.mp3';
 import RemoveTrackModal from '../../components/RemoveTrackModal/RemoveTrackModal';
 import RemovePlaylistModal from '../../components/RemovePlaylistModal/RemovePlaylistModal';
 import AddTrackToPlaylistModal from '../../components/AddTrackToPlaylistModal/AddTrackToPlaylistModal';
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
+import Player from '@madzadev/audio-player';
+import '@madzadev/audio-player/dist/index.css';
 
 function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPlaylist, onRemoveTrack, onRemovePlaylist }) {
 
@@ -54,11 +56,11 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPl
         setTrackRemove(track);
     }
 
-    if (!activeUser){
+    if (!activeUser) {
         return <Redirect to="/" />
     }
 
-    if  (redirectToHome){
+    if (redirectToHome) {
         return <Redirect to="/home" />
     }
 
@@ -82,9 +84,8 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPl
                                     <td>{i++}</td>
                                     <td>{track.title}</td>
                                     <td>{track.length}</td>
-                                    {/* <td className="td-btn"><a className="tracks-btn" onClick={() => playTrack(track.id, !track.play)}>{!track.play ? <FaPlayCircle /> : <FaPauseCircle />}</a></td> */}
-                                    <td className="td-btn"><a className="tracks-btn" onClick={() => playTrack(track.id, !(trackPlay && trackPlay.id === track.id))}>
-                                        {trackPlay && trackPlay.id === track.id ? <FaPauseCircle /> : <FaPlayCircle />}</a></td>
+                                    {/* <td className="td-btn"><a className="tracks-btn" onClick={() => playTrack(track.id, !(trackPlay && trackPlay.id === track.id))}>
+                                        {trackPlay && trackPlay.id === track.id ? <FaPauseCircle /> : <FaPlayCircle />}</a></td> */}
                                     <td className="td-btn"><a className="tracks-btn" onClick={() => handleOnClick(track)}><FaMinusCircle /></a></td>
                                 </tr>)}
                         </tbody>
@@ -92,14 +93,19 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPl
                 </div>
                 : null}
 
+
             {currentTracks.length > 0 ?
-                <Player
-                    trackList={currentTracks}
+                <Player trackList={currentTracks}
                     includeTags={true}
                     includeSearch={false}
                     showPlaylist={false}
                     autoPlayNextTrack={true} />
                 : null}
+
+            {/* <AudioPlayer
+                src={audio3}
+            /> */}
+
             <NamePlaylistModal show={showNamePlaylistModal} onClose={() => setShowNamePlaylistModal(false)} onEdit={onEditPlaylist} playlist={currentPlaylist} />
             <RemoveTrackModal show={showRemoveTrackModal} onClose={() => setShowRemoveTrackModal(false)} onRemove={onRemoveTrack} playlist={currentPlaylist} track={trackRemove} />
             <RemovePlaylistModal show={showRemovePlaylistModal} onClose={() => setShowRemovePlaylistModal(false)} onRemove={onRemovePlaylist} playlist={currentPlaylist} />

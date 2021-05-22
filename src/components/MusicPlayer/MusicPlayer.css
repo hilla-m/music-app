@@ -1,0 +1,22 @@
+.c-player{
+    width: 800px;
+    padding: 5px;
+    margin: 0 auto;
+    background-color: #212529;
+    border-radius: 20px;
+    margin-top: 50px;
+
+}
+
+.c-player .btn-play , .btn-backward , .btn-pause , .btn-forward{
+    color: white;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.c-player h5 {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+

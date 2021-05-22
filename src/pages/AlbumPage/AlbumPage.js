@@ -4,20 +4,23 @@ import { Redirect, useParams } from 'react-router';
 import './AlbumPage.css';
 import { FaPlay, FaPause, FaPlus, FaPauseCircle, FaPlayCircle, FaPlusCircle } from "react-icons/fa";
 import { useState } from 'react';
-import ReactAudioPlayer from 'react-audio-player';
 import Player from '@madzadev/audio-player';
 import '@madzadev/audio-player/dist/index.css';
 import audio1 from './Speak To MeBreathe.mp3';
 import audio2 from './Speak To MeBreathe.mp3';
 import audio3 from './On The Run.mp3';
 import AddTrackToPlaylistModal from '../../components/AddTrackToPlaylistModal/AddTrackToPlaylistModal';
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
+import MusicPlayer from '../../components/MusicPlayer/MusicPlayer';
 
-
-function AlbumPage({ activeUser, albums, tracks, artists, playlists, handlePlayTrack , addTrack}) {
+function AlbumPage({ activeUser, albums, tracks, artists, playlists, handlePlayTrack, addTrack }) {
     const { index } = useParams();
     const [trackPlay, setTrackPlay] = useState(null);
     const [showAddTrackModal, setShowAddTrackModal] = useState(false);
     const [trackAdd, setTrackAdd] = useState(null);
+    // const [autoPlay, setAutoPlay] = useState(false);
+    const [play, setPlay] = useState(true);
 
     const currentAlbum = albums[index];
     const currentArtist = artists.find(artist => artist.id === currentAlbum.artistId);
@@ -28,14 +31,17 @@ function AlbumPage({ activeUser, albums, tracks, artists, playlists, handlePlayT
 
     useEffect(() => {
         if (trackPlay) {
-            const audioUrl = process.env.PUBLIC_URL + trackPlay.file;
-            const audioObj = new Audio(audioUrl);
+            debugger;
+            const audioUrl = trackPlay.file; //process.env.PUBLIC_URL + trackPlay.file;
+            const audioObj = new Audio(audio3);
             audioObj.play();
-
+            
+            setPlay(true);
             // setTrackList(albumTracks.slice(trackPlay.id-1));
 
             return () => {
                 audioObj.pause();
+                setPlay(false);
                 // setTrackList(albumTracks);
             }
         }
@@ -105,7 +111,7 @@ function AlbumPage({ activeUser, albums, tracks, artists, playlists, handlePlayT
                                             <a className="tracks-btn" onClick={() => playTrack(track.id, !(trackPlay && trackPlay.id === track.id))}>
                                                 {trackPlay && trackPlay.id === track.id ? <FaPauseCircle /> : <FaPlayCircle />}
                                             </a></td>
-                                        <td className="td-btn"><FaPlusCircle  className="tracks-btn" onClick={() => handleAddTrack(track)}/></td>
+                                        <td className="td-btn"><FaPlusCircle className="tracks-btn" onClick={() => handleAddTrack(track)} /></td>
 
                                     </tr>)}
                             </tbody>
@@ -115,16 +121,23 @@ function AlbumPage({ activeUser, albums, tracks, artists, playlists, handlePlayT
                 </div>
                 : null}
 
-            {/* <ReactAudioPlayer src={currentTrack} autoPlay controls/> */}
+            {/* {   trackPlay ? */}
+                {/* <AudioPlayer
+                    // autoPlay={autoPlay}
+                    src={audio3}
+                /> */}
+                {/* <MusicPlayer track={trackPlay} play={play}/> */}
+             {/* : null}  */}
 
-            {/* {albumTracks.length > 0 ? */}
+            {/* {albumTracks.length > 0 ?
             <Player trackList={albumTracks}
                 includeTags={true}
                 includeSearch={false}
                 showPlaylist={false}
                 autoPlayNextTrack={true} />
-            {/* : null} */}
-            <AddTrackToPlaylistModal show={showAddTrackModal} onClose={() => setShowAddTrackModal(false)} playlists={playlists} trackAdd={trackAdd} onAddTrack={addTrack}/>
+            : null} */}
+
+            <AddTrackToPlaylistModal show={showAddTrackModal} onClose={() => setShowAddTrackModal(false)} playlists={playlists} trackAdd={trackAdd} onAddTrack={addTrack} />
 
         </div>
     );
