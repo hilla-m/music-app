@@ -83,3 +83,22 @@
 .p-album .rhap_time {
     color: white !important;
 }
+
+.p-album .reg-heart{
+    margin-top: 40px;
+    margin-left: 40px;
+    color: white;
+    height: 30px;
+    width: 30px;
+    cursor:pointer;
+}
+
+
+.p-album .heart{
+    margin-top: 40px;
+    margin-left: 40px;
+    color: white;
+    height: 30px;
+    width: 30px;
+    cursor:pointer;
+}

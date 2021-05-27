@@ -4,7 +4,7 @@
     "name": "Dana",
     "email": "dana@gmail.com",
     "password": "123",
-    "albums":[1,2],
+    "albums":[1,2,11],
     "artists":[1]
 },
 {

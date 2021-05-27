@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { ListGroup, Row, Spinner, Table, Button } from 'react-bootstrap';
 import { Redirect, useParams } from 'react-router';
 import './AlbumPage.css';
-import { FaPlay, FaPause, FaPlus, FaPauseCircle, FaPlayCircle, FaPlusCircle } from "react-icons/fa";
+import { FaRegHeart, FaHeart, FaPauseCircle, FaPlayCircle, FaPlusCircle } from "react-icons/fa";
 import { useState } from 'react';
 import Player from '@madzadev/audio-player';
 import '@madzadev/audio-player/dist/index.css';
@@ -17,7 +17,7 @@ import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import MusicPlayer from '../../components/MusicPlayer/MusicPlayer';
 
-function AlbumPage({ activeUser, albums, tracks, artists, playlists, handlePlayTrack, addTrack }) {
+function AlbumPage({ activeUser, albums, tracks, artists, playlists, handlePlayTrack, addTrack , onEditFav}) {
     const { index } = useParams();
     const [trackPlay, setTrackPlay] = useState(null);
     const [showAddTrackModal, setShowAddTrackModal] = useState(false);
@@ -30,6 +30,9 @@ function AlbumPage({ activeUser, albums, tracks, artists, playlists, handlePlayT
 
     const albumTracks = tracks.filter(track => track.albumId === currentAlbum.id);
 
+    //checking if the album is in the favorites albums list
+    const favAlbum = activeUser.albums.find(album => album === currentAlbum.id);
+
     // const[trackList,setTrackList] = useState(albumTracks);
 
     useEffect(() => {
@@ -37,14 +40,14 @@ function AlbumPage({ activeUser, albums, tracks, artists, playlists, handlePlayT
 
             const audioUrl = trackPlay.file; //process.env.PUBLIC_URL + trackPlay.file;
             let audioObj;
-            if (trackPlay.file==="Do I Wanna Know.mp3"){
-                 audioObj = new Audio(audio1);
+
+            if (trackPlay.file === "Do I Wanna Know.mp3") {
+                audioObj = new Audio(audio1);
             } else {
-                 audioObj = new Audio(audio2);
+                audioObj = new Audio(audio2);
             }
-            // audioObj.load();
             audioObj.play();
-            
+
             setPlay(true);
             // setTrackList(albumTracks.slice(trackPlay.id-1));
 
@@ -102,6 +105,11 @@ function AlbumPage({ activeUser, albums, tracks, artists, playlists, handlePlayT
                 <div className="album-img">
                     <img src={currentAlbum.image} />
                 </div>
+                {favAlbum ?
+                    <FaHeart className="heart" onClick={() => onEditFav(currentAlbum.id, false)}/>
+                    :
+                    <FaRegHeart className="reg-heart" onClick={() => onEditFav(currentAlbum.id, true)}/>
+                }
             </div>
 
             {albumTracks.length > 0 ?
@@ -131,12 +139,12 @@ function AlbumPage({ activeUser, albums, tracks, artists, playlists, handlePlayT
                 : null}
 
             {/* {   trackPlay ? */}
-                {/* <AudioPlayer
+            {/* <AudioPlayer
                     // autoPlay={autoPlay}
                     src={audio3}
                 /> */}
-                {/* <MusicPlayer track={trackPlay} play={play}/> */}
-             {/* : null}  */}
+            {/* <MusicPlayer track={trackPlay} play={play}/> */}
+            {/* : null}  */}
 
             {/* {albumTracks.length > 0 ?
             <Player trackList={albumTracks}
