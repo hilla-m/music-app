@@ -31,7 +31,7 @@ import { useEffect } from 'react';
 function App() {
   const [users, setUsers] = useState(usersJSON.map(plainUser => new UserModel(plainUser)));
   const [activeUser, setActiveUser] = useState(users[0]);
-
+  
   const[albums, setAlbums] = useState(albumsJSON.map(plainAlbum => new AlbumModel(plainAlbum)));
   const[artists, setArtists] = useState(artistsJSON.map(plainArtist => new ArtistModel(plainArtist)));
   const[tracks, setTracks] = useState(tracksJSON.map(plainTrack => new TrackModel(plainTrack)));

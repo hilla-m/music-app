@@ -6,9 +6,12 @@ import { FaPlay, FaPause, FaPlus, FaPauseCircle, FaPlayCircle, FaPlusCircle } fr
 import { useState } from 'react';
 import Player from '@madzadev/audio-player';
 import '@madzadev/audio-player/dist/index.css';
-import audio1 from './Speak To MeBreathe.mp3';
-import audio2 from './Speak To MeBreathe.mp3';
-import audio3 from './On The Run.mp3';
+import audio1 from './Do I Wanna Know.mp3';
+import audio2 from './R U Mine.mp3';
+import audio3 from './One For the Road.mp3';
+import audio4 from './Arabella.mp3';
+import audio5 from './I Want It All.mp3';
+
 import AddTrackToPlaylistModal from '../../components/AddTrackToPlaylistModal/AddTrackToPlaylistModal';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
@@ -31,9 +34,15 @@ function AlbumPage({ activeUser, albums, tracks, artists, playlists, handlePlayT
 
     useEffect(() => {
         if (trackPlay) {
-            debugger;
+
             const audioUrl = trackPlay.file; //process.env.PUBLIC_URL + trackPlay.file;
-            const audioObj = new Audio(audio3);
+            let audioObj;
+            if (trackPlay.file==="Do I Wanna Know.mp3"){
+                 audioObj = new Audio(audio1);
+            } else {
+                 audioObj = new Audio(audio2);
+            }
+            // audioObj.load();
             audioObj.play();
             
             setPlay(true);

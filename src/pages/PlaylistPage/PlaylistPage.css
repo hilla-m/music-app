@@ -74,3 +74,7 @@ cursor: pointer;
 .p-playlist .rhap_time {
     color: white !important;
 }
+
+.p-playlist ._RZMQZ{
+    display: none;
+}

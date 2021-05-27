@@ -15,6 +15,43 @@
         "id": 3,
         "name": "Lady Gaga",
         "image":"https://i0.wp.com/escxtra.com/wp-content/uploads/Lady-Gaga.jpg?fit=1200%2C800&ssl=1"
+    },
+
+    {
+        "id": 4,
+        "name": "Sia",
+        "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Sia_performing_photograph_by_Kris_Krug.jpg/1200px-Sia_performing_photograph_by_Kris_Krug.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Billie Eilish",
+        "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Billie_Eilish_at_Pukkelpop_Festival_-_18_AUGUST_2019_%2801%29_%28cropped%29.jpg/1200px-Billie_Eilish_at_Pukkelpop_Festival_-_18_AUGUST_2019_%2801%29_%28cropped%29.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Bruno Mars",
+        "image":"https://moveconcerts.com/wp-content/uploads/2017/06/bruno-mars.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Pearl Jam",
+        "image":"https://www.rollingstone.com/wp-content/uploads/2020/09/pearl-jam-vote.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Foo Fighters",
+        "image":"https://www.nme.com/wp-content/uploads/2021/02/nme-cover-foo-fighters-2021-header@2560x1625.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Tema Impala",
+        "image":"https://www.grammy.com/sites/com/files/styles/news_detail_header/public/gettyimages-510519690.jpg?itok=5u2bcFbF"
+    },
+    {
+        "id": 10,
+        "name": "Arctic Monkeys",
+        "image":"https://cdns-images.dzcdn.net/images/artist/9886f58e9ec2227a595afe3af923ec2f/500x500.jpg"
     }
+
 
 ]

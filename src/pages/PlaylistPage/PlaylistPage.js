@@ -5,7 +5,6 @@ import './PlaylistPage.css';
 import { Redirect, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import NamePlaylistModal from '../../components/NamePlaylistModal/NamePlaylistModal';
-import audio3 from './On The Run.mp3';
 import RemoveTrackModal from '../../components/RemoveTrackModal/RemoveTrackModal';
 import RemovePlaylistModal from '../../components/RemovePlaylistModal/RemovePlaylistModal';
 import AddTrackToPlaylistModal from '../../components/AddTrackToPlaylistModal/AddTrackToPlaylistModal';
@@ -13,6 +12,11 @@ import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import Player from '@madzadev/audio-player';
 import '@madzadev/audio-player/dist/index.css';
+import audio1 from './Do I Wanna Know.mp3';
+import audio2 from './R U Mine.mp3';
+import audio3 from './One For the Road.mp3';
+import audio4 from './Arabella.mp3';
+import audio5 from './I Want It All.mp3';
 
 function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPlaylist, onRemoveTrack, onRemovePlaylist }) {
 
@@ -24,6 +28,34 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPl
     const [trackRemove, setTrackRemove] = useState(null);
     const [showRemovePlaylistModal, setShowRemovePlaylistModal] = useState(false);
     const [redirectToHome, setRedirectToHome] = useState(false);
+
+
+    const demoTracks = [{
+        title: "Do I Wanna Know",
+        url: audio1,
+        tags: [""],
+    },
+    {
+        title: "R U Mine",
+        url: audio2,
+        tags: [""],
+    },
+    {
+        title: "One For the Road",
+        url: audio3,
+        tags: [""],
+    },
+    {
+        title: "Arabella",
+        url: audio4,
+        tags: [""],
+    },
+    {
+        title: "I Want It All",
+        url: audio5,
+        tags: [""],
+    }
+    ];
 
     useEffect(() => {
         if (trackPlay) {
@@ -94,11 +126,11 @@ function PlaylistPage({ activeUser, playlists, tracks, handlePlayTrack, onEditPl
                 : null}
 
 
-            {currentTracks.length > 0 ?
-                <Player trackList={currentTracks}
+            {demoTracks.length > 0 ?
+                <Player trackList={demoTracks}
                     includeTags={true}
                     includeSearch={false}
-                    showPlaylist={false}
+                    showPlaylist={true}
                     autoPlayNextTrack={true} />
                 : null}
 

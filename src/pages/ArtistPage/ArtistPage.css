@@ -3,6 +3,7 @@
     height: 250px;
     margin: 40px;
     object-fit:cover;
+    border-radius: .25rem;
 }
 
 .p-artist .artist{
