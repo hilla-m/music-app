@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/music-app/static/css/main.b079edb2.chunk.css",
-    "main.js": "/music-app/static/js/main.7d963718.chunk.js",
-    "main.js.map": "/music-app/static/js/main.7d963718.chunk.js.map",
-    "runtime-main.js": "/music-app/static/js/runtime-main.fd0e90cc.js",
-    "runtime-main.js.map": "/music-app/static/js/runtime-main.fd0e90cc.js.map",
+    "main.css": "/music-app/static/css/main.14102518.chunk.css",
+    "main.js": "/music-app/static/js/main.61c839e0.chunk.js",
+    "main.js.map": "/music-app/static/js/main.61c839e0.chunk.js.map",
+    "runtime-main.js": "/music-app/static/js/runtime-main.ff8047b6.js",
+    "runtime-main.js.map": "/music-app/static/js/runtime-main.ff8047b6.js.map",
     "static/css/2.8ceee51e.chunk.css": "/music-app/static/css/2.8ceee51e.chunk.css",
-    "static/js/2.8b8eecd0.chunk.js": "/music-app/static/js/2.8b8eecd0.chunk.js",
-    "static/js/2.8b8eecd0.chunk.js.map": "/music-app/static/js/2.8b8eecd0.chunk.js.map",
-    "static/js/3.53098df5.chunk.js": "/music-app/static/js/3.53098df5.chunk.js",
-    "static/js/3.53098df5.chunk.js.map": "/music-app/static/js/3.53098df5.chunk.js.map",
+    "static/js/2.cb96293a.chunk.js": "/music-app/static/js/2.cb96293a.chunk.js",
+    "static/js/2.cb96293a.chunk.js.map": "/music-app/static/js/2.cb96293a.chunk.js.map",
+    "static/js/3.430ee9d4.chunk.js": "/music-app/static/js/3.430ee9d4.chunk.js",
+    "static/js/3.430ee9d4.chunk.js.map": "/music-app/static/js/3.430ee9d4.chunk.js.map",
     "index.html": "/music-app/index.html",
     "static/css/2.8ceee51e.chunk.css.map": "/music-app/static/css/2.8ceee51e.chunk.css.map",
-    "static/css/main.b079edb2.chunk.css.map": "/music-app/static/css/main.b079edb2.chunk.css.map",
-    "static/js/2.8b8eecd0.chunk.js.LICENSE.txt": "/music-app/static/js/2.8b8eecd0.chunk.js.LICENSE.txt",
+    "static/css/main.14102518.chunk.css.map": "/music-app/static/css/main.14102518.chunk.css.map",
+    "static/js/2.cb96293a.chunk.js.LICENSE.txt": "/music-app/static/js/2.cb96293a.chunk.js.LICENSE.txt",
     "static/media/Arabella.a8b57991.mp3": "/music-app/static/media/Arabella.a8b57991.mp3",
     "static/media/Do I Wanna Know.d7ad5024.mp3": "/music-app/static/media/Do I Wanna Know.d7ad5024.mp3",
     "static/media/I Want It All.6a35bd9f.mp3": "/music-app/static/media/I Want It All.6a35bd9f.mp3",
@@ -22,10 +22,10 @@
     "static/media/logo.27e693a3.jpg": "/music-app/static/media/logo.27e693a3.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.fd0e90cc.js",
+    "static/js/runtime-main.ff8047b6.js",
     "static/css/2.8ceee51e.chunk.css",
-    "static/js/2.8b8eecd0.chunk.js",
-    "static/css/main.b079edb2.chunk.css",
-    "static/js/main.7d963718.chunk.js"
+    "static/js/2.cb96293a.chunk.js",
+    "static/css/main.14102518.chunk.css",
+    "static/js/main.61c839e0.chunk.js"
   ]
 }
