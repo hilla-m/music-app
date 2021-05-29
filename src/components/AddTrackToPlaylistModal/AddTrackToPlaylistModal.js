@@ -3,10 +3,10 @@ import { Modal, Form, Button } from 'react-bootstrap';
 import './AddTrackToPlaylistModal.css';
 
 function AddTrackToPlaylistModal({ playlists, trackAdd, show, onClose, onAddTrack }) {
-    const [currPlaylist, setCurrPlaylist] = useState(playlists[0]);
+    const [currPlaylistName, setCurrPlaylistName] = useState(playlists[0]);
 
     function AddTrackToPlaylist() {
-        debugger;
+            const currPlaylist = playlists.find(pl => pl.title === currPlaylistName);
             onAddTrack(currPlaylist.id, trackAdd);
         onClose();
     }
@@ -20,7 +20,7 @@ function AddTrackToPlaylistModal({ playlists, trackAdd, show, onClose, onAddTrac
                 <Form>
                     <Form.Group>
                         <Form.Label>Choose playlist</Form.Label>
-                        <Form.Control as="select" custom value={currPlaylist} onChange={e => setCurrPlaylist(e.target.value)}>
+                        <Form.Control as="select" custom value={currPlaylistName} onChange={e => setCurrPlaylistName(e.target.value)}>
                             {playlists.map(playlist => <option key={playlist.id} >{playlist.title}</option>)}
                         </Form.Control>
                     </Form.Group>
