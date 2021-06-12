@@ -3,9 +3,9 @@ import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './ArtistCard.css';
 
-function ArtistCard(artist) {
+function ArtistCard({artist}) {
 
-    const artistIndex = artist.id - 1;
+    const artistIndex = artist.Id - 1;
 
     return (
         <Card className="artist-card">

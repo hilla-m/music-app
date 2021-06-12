@@ -7,13 +7,9 @@ import ArtistPage from '../../pages/ArtistPage/ArtistPage';
 
 
 function AlbumCard({ album , artist}) {
-    
+
     const albumIndex = album.id-1;
     const artistIndex = artist.id-1;
-
-    //     if (index !== undefined) {
-    //     return <Redirect to={'/album/' + index}/>
-    // }
 
     return (
         <Card className="album-card">

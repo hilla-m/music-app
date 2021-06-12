@@ -131,7 +131,7 @@ function App() {
             onRemoveTrack={removeTrack}
             onRemovePlaylist={removePlaylist}
           /></Route>
-          <Route exact path="/artists"><FavoriteArtistsPage activeUser={activeUser} /></Route>
+          <Route exact path="/artists"><FavoriteArtistsPage activeUser={activeUser}  artists={artists}/></Route>
           <Route exact path="/albums"><FavoriteAlbumsPage activeUser={activeUser} albums={albums} artists={artists} /></Route>
         </Switch>
       </HashRouter>
