@@ -5,6 +5,7 @@ import AlbumCard from '../../components/AlbumCard/AlbumCard';
 import './ArtistPage.css';
 
 function ArtistPage({ activeUser , artists, albums}) {
+
     const { index } = useParams();
     const currentArtist = artists[index];
     const artistAlbums = albums.filter( album => album.artistId === currentArtist.id);

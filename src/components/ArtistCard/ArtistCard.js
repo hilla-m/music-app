@@ -5,7 +5,7 @@ import './ArtistCard.css';
 
 function ArtistCard({artist}) {
 
-    const artistIndex = artist.Id - 1;
+    const artistIndex = artist.id - 1;
 
     return (
         <Card className="artist-card">
