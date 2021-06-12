@@ -5,6 +5,7 @@
 
 .album-card  .card-img-top{
     /* width: 100%; */
+    Object-fit: cover;
 }
 
 .album-card .album-link ,.album-card .artist-link {

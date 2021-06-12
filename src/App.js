@@ -85,7 +85,7 @@ function App() {
     setPlaylists(tempPlaylists);
   }
 
-  function editFav(albumId, value) {
+  function editFavAlbums(albumId, value) {
     const tempUsers = [...users];
     if (value) {
       tempUsers.map(user => { if (user.id === activeUser.id) { user.albums.push(albumId) } });
@@ -94,6 +94,21 @@ function App() {
         if (user.id === activeUser.id) {
           user.albums.map(album => {
             if (album === albumId) { user.albums.splice(user.albums.indexOf(album), 1) }});
+        }
+      });
+    }
+    setUsers(tempUsers);
+  }
+
+  function editFavArtists(artistId, value) {
+    const tempUsers = [...users];
+    if (value) {
+      tempUsers.map(user => { if (user.id === activeUser.id) { user.artists.push(artistId) } });
+    } else {
+      tempUsers.map(user => {
+        if (user.id === activeUser.id) {
+          user.artists.map(artist => {
+            if (artist === artistId) { user.artists.splice(user.artists.indexOf(artist), 1) }});
         }
       });
     }
@@ -117,10 +132,15 @@ function App() {
             playlists={playlists}
             handlePlayTrack={handlePlayTrack}
             addTrack={addTrack}
-            onEditFav={editFav}
+            onEditFav={editFavAlbums}
           /></Route>
           <Route exact path="/search"><SearchingPage activeUser={activeUser} /></Route>
-          <Route exact path="/artist/:index"><ArtistPage activeUser={activeUser} albums={albums} artists={artists} /></Route>
+          <Route exact path="/artist/:index"><ArtistPage
+          activeUser={activeUser}
+          albums={albums}
+          artists={artists}
+          onEditFav={editFavArtists}
+           /></Route>
           <Route exact path="/all-playlists"><AllPlaylistsPage activeUser={activeUser} playlists={playlists} onAddPlaylist={addPlaylist} /></Route>
           <Route exact path="/playlist/:index"><PlaylistPage
             activeUser={activeUser}

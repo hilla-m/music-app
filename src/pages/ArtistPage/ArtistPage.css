@@ -19,3 +19,21 @@
 .p-artist .artist-albums{
     padding-top: 50px;
 }
+
+.p-artist .reg-heart{
+    margin-top: 40px;
+    margin-left: 40px;
+    color: white;
+    height: 30px;
+    width: 30px;
+    cursor:pointer;
+}
+
+.p-artist .heart{
+    margin-top: 40px;
+    margin-left: 40px;
+    color: white;
+    height: 30px;
+    width: 30px;
+    cursor:pointer;
+}
