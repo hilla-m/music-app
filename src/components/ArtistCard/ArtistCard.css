@@ -1,0 +1,9 @@
+.artist-card {
+    height: 350px;  
+    margin: 20px 30px 60px 30px;
+}
+  
+.artist-card .artist-link  {
+    text-decoration: none;
+    color: black;
+}
